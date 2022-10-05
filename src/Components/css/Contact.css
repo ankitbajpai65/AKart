@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 1.6rem;
+}
+
+.contact {
+    min-height: 78rem;
+    background: rgb(151 151 151);
+}
+
+.contactDiv {
+    /* border: 2px solid red; */
+    color: white;
+    height: 41rem;
+    /* background-image: linear-gradient(135deg, hsla(301, 98%, 58%, 0.65), hsla(198, 100%, 65%, 0.65)), */
+    background-image:
+        url('../../images/contact1.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    opacity: 0.8;
+}
+
+.contactDiv h1 {
+    font-size: 4.5rem;
+}
+
+#formDiv {
+    height: 60rem;
+}
+
+.form {
+    /* border: 2px solid red; */
+    height: 80%;
+    width: 29%;
+    padding-right: 0rem;
+}
+
+/* #name {
+    position: relative;
+}
+
+.nameErrorMsg {
+    position: absolute;
+    top: 2rem;
+    left: 0;
+} */
+.errorMsg {
+    /* color: #ad0303; */
+    color: white;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+
+.form input,
+.form textarea {
+    width: 100%;
+    font-size: 1.7rem;
+    padding: 1.2rem 2rem;
+    /* margin: 1rem 2rem 2rem 2rem; */
+    margin-bottom: 3rem;
+    border-radius: 1rem;
+    border: none;
+    outline: none;
+}
+
+.ankit {
+    border: 2px solid red;
+}
+
+.form button {
+    width: 98%;
+    font-size: 1.8rem;
+    padding: 1.2rem 2rem;
+    margin-top: 5rem;
+    border-radius: 4rem;
+    transition: 0.5s;
+    /* background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%); */
+}
+
+.form button:hover {
+    /* transform: scale(1.05); */
+    background-position: right center;
+}

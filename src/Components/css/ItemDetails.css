@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 1.6rem;
+}
+
+.itemDetails {
+    height: 100vh;
+    margin-top: 10rem;
+}
+
+.imageSec {
+    /* border: 2px solid rgb(209, 42, 42); */
+    height: 90%;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+    /* justify-content: center; */
+}
+
+.imageDiv {
+    height: 80%;
+}
+
+.sideImgDiv {
+    /* border: 2px solid black; */
+    height: 100%;
+}
+
+.sideImgDiv img {
+    /* border: 2px solid black; */
+    height: 31%;
+    width: 85%;
+    margin-bottom: 1.5rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* box-shadow: 1px 1px 8px rgb(204 203 203), 0px 0px 8px rgb(204 203 203); */
+}
+
+.mainImgDiv {
+    /* border: 2px solid black; */
+    height: 100%;
+    display: inline;
+    margin: auto;
+}
+
+.mainImgDiv img {
+    /* border: 2px solid black; */
+    height: 100%;
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* box-shadow: 3px 3px 8px rgb(204, 203, 203), -3px -3px 8px rgb(204, 203, 203); */
+}
+
+
+.imageSec button {
+    width: 30%;
+    font-size: 1.5rem;
+    margin: 2rem;
+    padding: 1rem 0rem;
+    letter-spacing: 1px;
+}
+
+.infoDiv {
+    height: 80%;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.infoDiv p {
+    font-size: 3rem;
+}
+
+.rating {
+    width: 8%;
+    background: #23a923;
+    padding: 0.2rem 0rem;
+    text-align: center;
+    color: white;
+    border-radius: 2rem;
+}
+
+#aboutInfo {
+    height: 85%;
+}
+
+.labelIcon {
+    transform: scale(1.3);
+    color: #23a923;
+}
+
+.info select {
+    font-size: 1.7rem;
+    margin-top: 1rem;
+    width: 50%;
+    padding: 0.6rem 2rem;
+}
+
+.removeIcon,
+.addIcon {
+    border: 1px solid grey;
+    border-radius: 50%;
+}
+
+.figure {
+    border: 1px solid grey;
+    padding: 0rem 1.2rem;
+    font-size: 1.6rem;
+    font-weight: bold;
+}

@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 1.6rem;
+}
+
+.main_nav_div {
+    /* background-color: #B98F77; */
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+
+.active {
+    background-color: white;
+    box-shadow: 0 8px 8px -7px #b4afaf;
+}
+
+.linkDiv ul {
+    list-style: none;
+}
+
+.logo {
+    text-decoration: none;
+    color: white;
+    font-size: 2.2rem;
+}
+
+.logo:hover {
+    color: white;
+}
+
+.navLinks {
+    text-decoration: none;
+    color: white;
+    font-size: 1.8rem;
+    position: relative;
+    padding: 0 4px;
+}
+
+.navLinks:after {
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    content: "";
+    height: 3px;
+    width: 0;
+    background-color: aliceblue;
+    transition: 0.3s;
+}
+
+.navLinks:hover {
+    color: white;
+}
+
+.navLinks:hover:after {
+    width: 100%;
+}
+
+.logoAfterScroll {
+    text-decoration: none;
+    color: black;
+}
+
+.logoAfterScroll:hover {
+    color: black;
+}
+
+.navLinksAfterScroll {
+    text-decoration: none;
+    color: rgb(24, 23, 23);
+    font-size: 1.8rem;
+    position: relative;
+    padding: 0 4px;
+}
+
+.navLinksAfterScroll:after {
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    content: "";
+    height: 3px;
+    width: 0;
+    background-color: rgb(19, 20, 20);
+    transition: 0.3s;
+}
+
+.navLinksAfterScroll:hover {
+    color: black;
+}
+
+.navLinksAfterScroll:hover:after {
+    width: 100%;
+}
+
+.cartIcon {
+    font-size: 2.3rem;
+    color: white;
+}
+
+.cartIconAfterScroll {
+    color: black;
+}
+
+.loginBtn {
+    width: 9rem;
+    font-size: 1.5rem;
+}

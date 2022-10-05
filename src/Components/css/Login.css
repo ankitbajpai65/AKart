@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 1.6rem;
+}
+
+.loginSec {
+    height: 100vh;
+}
+
+.loginDiv {
+    /* border: 2px solid red; */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #CED4CA;
+}
+
+.loginFormDiv {
+    /* border: 2px solid black; */
+    background: white;
+    height: 65%;
+    width: 28%;
+    padding: 3rem;
+    border-radius: 2rem;
+}
+
+.loginFormDiv label {
+    margin: 1rem 0rem;
+}
+
+.loginFormDiv input {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    background: #CED4CA;
+    border: none;
+    /* border-bottom: 2px solid green; */
+    outline: none;
+}
+
+.loginPageBtn {
+    font-size: 1.7rem;
+    padding: 0.7rem;
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+}
+
+.not_has_account button {
+    background: white;
+    font-size: 1.7rem;
+    font-weight: 500;
+    /* text-decoration: underline; */
+}
