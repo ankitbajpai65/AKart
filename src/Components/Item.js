@@ -6,6 +6,7 @@ import GradeIcon from '@material-ui/icons/Grade';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import ItemDetails from './ItemDetails';
 import shirt from '../images/shirt.jpg';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Item = (props) => {
     // console.log(props);
@@ -15,12 +16,11 @@ const Item = (props) => {
         navigate('/item_details', { state: props });
     }
     const addToCart = (ind, title) => {
-        alert(`${title} is added to cart`);
-        // console.log('cart click');
-        // if (array.id === ind) {
-        //     document.getElementsByClassName('cartIconinItem').style.display = 'none';
-        //     document.getElementsByClassName('cartIconFilled').style.display = 'block';
-        // }
+        // alert(`${title} is added to cart`);
+        toast.success(`${title} is added to cart`, {
+            position: "top-right",
+            theme: "dark"
+        });
     }
     return (
         <>
@@ -45,41 +45,11 @@ const Item = (props) => {
                                 .map((_, i) => <GradeIcon className="starIcon mt-3" key={i} />)
                             }
                         </span>
-                        {/* <GradeIcon className="starIcon mt-3" />
-                        <GradeIcon className="starIcon mt-3" />
-                        <GradeIcon className="starIcon mt-3" /> */}
-                        {/* {
-                            for(let i=0;i<props.starId ; i++)
-                              return (<GradeIcon />)
-                        } */}
-                        {/* <i className="bi bi-cart3 cartIcon"></i> */}
                     </div>
                 </div>
+                <ToastContainer />
             </div>
-            {/* <Routes>
-                <Route path="/item_details" element={<ItemDetails />} />
-            </Routes> */}
         </>
-        // <>
-        //     {item.map((val) => {
-        //         console.log(val);
-        //         return (
-        //             <>
-        //                 <div className="item">
-        //                     <img src={shirt} alt="" />
-        //                     <div>
-        //                         <span>Cotton T-shirt</span>
-        //                         <i className="bi bi-cart3 cartIconinItem"></i>
-        //                     </div>
-        //                     <div>
-        //                         <span>Rs.500/-</span>
-        //                         {/* <i className="bi bi-cart3 cartIcon"></i> */}
-        //                     </div>
-        //                 </div>
-        //             </>
-        //         );
-        //     })}
-        // </>
     )
 }
 

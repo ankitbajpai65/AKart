@@ -100,3 +100,16 @@
     /* border: 2px solid red; */
     padding: 1.2rem 0.5rem;
 }
+
+.warningDiv {
+    height: 70vh;
+    /* border: 2px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.warning {
+    font-size: 4rem;
+    font-weight: bold;
+}

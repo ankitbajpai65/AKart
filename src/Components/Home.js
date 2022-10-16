@@ -35,18 +35,10 @@ const dataSlider = [
         image: women2
     }
 ];
-// const ankit = {
-//     // backgroundImage: dataSlider.image,
-//     // backgroundPosition: 'center',
-//     // backgroundRepeat: 'no-repeat',
-//     // backgroundSize: 'cover'
-// };
 const Home = () => {
     const [slideIndex, setSlideIndex] = useState(1);
     const [auto, setauto] = useState(true);
-    // const shopeNowClick = () => {
-    //     navigate('/');
-    // }
+
     const nextSlide = () => {
         if (slideIndex !== dataSlider.length)
             setSlideIndex(slideIndex + 1);

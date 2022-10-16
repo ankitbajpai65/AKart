@@ -25,6 +25,7 @@
     width: 28%;
     padding: 3rem;
     border-radius: 2rem;
+    position: relative;
 }
 
 .loginFormDiv label {
@@ -39,6 +40,29 @@
     border: none;
     /* border-bottom: 2px solid green; */
     outline: none;
+}
+
+.visibilityIcon {
+    position: absolute;
+    top: 17.6rem;
+    right: 5rem;
+    transform: scale(1.2);
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.vIcon {
+    position: absolute;
+    top: 26.6rem;
+    right: 5rem;
+    transform: scale(1.2);
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.errorMsg {
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
 }
 
 .loginPageBtn {

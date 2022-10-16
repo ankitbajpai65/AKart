@@ -1,8 +1,9 @@
 import { SettingsSystemDaydreamTwoTone } from '@material-ui/icons';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './css/Contact.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { auth } from './firebase';
 
 const Contact = () => {
     const [name, setName] = useState(false);
@@ -13,6 +14,15 @@ const Contact = () => {
         email: "",
         message: ""
     });
+    // useEffect(() => {
+    //     auth.onAuthStateChanged((user) => {
+    //         console.log(user);
+    //         if (user) {
+    //             detail.fullname = user.displayName;
+    //             detail.email = user.email;
+    //         }
+    //     })
+    // })
     const inputEvent = (event) => {
         // console.log(event.target.value);
         // console.log(event.target.name);
@@ -54,30 +64,52 @@ const Contact = () => {
         }
         setMsg(false);
     }
-    const validate = (event) => {
+    const postData = async (event) => {
         event.preventDefault();
 
-        if (name || email || msg) {
-            toast.error("Please fill correct details!", {
+        // if (name || email || msg) {
+        //     toast.error("Please fill correct details!", {
+        //         position: "top-center",
+        //         theme: "dark"
+        //     });
+        //     return false;
+        // }
+        const { fullname, email, message } = detail;
+        if (fullname && email && message) {
+            const res = await fetch('https://e-commerce-website-a04e4-default-rtdb.firebaseio.com/contactForm.json',
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        fullname,
+                        email,
+                        message
+                    })
+                })
+            toast.success("Your form has been submitted successfully!", {
+                position: "top-center",
+                theme: "dark"
+            });
+            function removeVal() {
+                document.querySelectorAll('.details').forEach(element => {
+                    element.value = "";
+                });
+            }
+            setTimeout(removeVal, 500);
+            // setName(false);
+            // setEmail(false);
+            // setMsg(false);
+            setDetail(null);
+        }
+        else {
+            toast.error("Please fill all details!", {
                 position: "top-center",
                 theme: "dark"
             });
             return false;
         }
-        toast.success("Your form has been submitted successfully!", {
-            position: "top-center",
-            theme: "dark"
-        });
-        function removeVal() {
-            document.querySelectorAll('.details').forEach(element => {
-                element.value = "";
-            });
-        }
-        setTimeout(removeVal, 500);
-        setName(false);
-        setEmail(false);
-        setMsg(false);
-        setDetail(null);
     }
     return (
         <>
@@ -86,17 +118,17 @@ const Contact = () => {
                     <h1>Contact Us</h1>
                 </div>
                 <div id="formDiv" className="d-flex flex-column justify-content-center align-items-center">
-                    <form action="" onSubmit={validate} className="form container">
-                        {name && <span className="errorMsg row mb-3">Must hold alphabets only and length should be greater than 2</span>}
+                    <form action="" className="form container" method="POST">
+                        {name && <span className="errorMsg row mb-3">*Must hold alphabets only and length should be greater than 2</span>}
                         <input type="text" id="name" className={`${name ? 'ankit details input row' : 'row details input'}`} onChange={inputEvent} onBlur={validateName} name="fullname" placeholder="Enter name" />
 
-                        {email && <span className="errorMsg row mb-3">Please enter valid email!</span>}
+                        {email && <span className="errorMsg row mb-3">*Please enter valid email!</span>}
                         <input type="" id="email" className="details input row" onChange={inputEvent} onBlur={validateMail} name="email" placeholder="Enter email" />
 
-                        {msg && <span className="errorMsg row mb-3">Message is required!</span>}
+                        {msg && <span className="errorMsg row mb-3">*Message is required!</span>}
                         <textarea rows="5" cols="20" id="message" className="details row" onChange={inputEvent} onBlur={validateMsg} name="message" placeholder="Your message" />
 
-                        <button className="btn btn-secondary">Submit</button>
+                        <button className="btn btn-secondary" onClick={postData}>Submit</button>
                     </form>
                 </div>
             </div>
