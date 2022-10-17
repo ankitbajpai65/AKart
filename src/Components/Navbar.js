@@ -48,7 +48,7 @@ const Navbar = () => {
             <div className={`container-fluid main_nav_div p-3 ps-3 pe-3 text-white ${scroll ? 'active' : ''}`}>
                 <div className="row d-flex justify-content-between align-items-center">
                     <div className="col-2 offset-1 name">
-                        <Link to="/" style={{ color: ((location.pathname === "/shop") || (location.pathname === "/cart") || (location.pathname === "/item_details")) && "black" }} className={`logo ${scroll ? 'logoAfterScroll' : ''}`}>AnkitKart</Link>
+                        <Link to="/" style={{ color: ((location.pathname === "/shop") || (location.pathname === "/cart") || (location.pathname === "/item_details")) && "black" }} className={`logo ${scroll ? 'logoAfterScroll' : ''}`}>aKart</Link>
                     </div>
                     <div className="col-6 linkDiv">
                         <ul className="row">
