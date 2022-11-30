@@ -93,7 +93,8 @@
     }
 
     .form {
-        width: 45%;
+        /* width: 45%; */
+        width: 20em;
     }
 
     .contactDiv {

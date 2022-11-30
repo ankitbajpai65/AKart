@@ -70,16 +70,16 @@ const Home = () => {
         }
     }
     let slideinterval;
-    useEffect(() => {
-        setauto(true)
-        if (auto) {
-            slideinterval = setInterval(nextSlide, 3000);
-        }
-        return () => {
-            setauto(false);
-            clearInterval(slideinterval);
-        }
-    })
+    // useEffect(() => {
+    //     setauto(true)
+    //     if (auto) {
+    //         slideinterval = setInterval(nextSlide, 3000);
+    //     }
+    //     return () => {
+    //         setauto(false);
+    //         clearInterval(slideinterval);
+    //     }
+    // })
     return (
         <>
             <div className="container-slider homeDiv">

@@ -38,6 +38,9 @@
     box-shadow: none;
     background: #CED4CA;
     z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .emptyCart img {
@@ -134,6 +137,10 @@
 
     .totalPrice {
         margin-top: 4rem;
+    }
+
+    .emptyCart {
+        height: auto;
     }
 }
 

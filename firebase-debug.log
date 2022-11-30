@@ -1,0 +1,139 @@
+[debug] [2022-11-30T05:43:52.558Z] ----------------------------------------------------------------------
+[debug] [2022-11-30T05:43:52.561Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\ankit\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-11-30T05:43:52.561Z] CLI Version:   11.14.4
+[debug] [2022-11-30T05:43:52.562Z] Platform:      win32
+[debug] [2022-11-30T05:43:52.562Z] Node Version:  v16.17.1
+[debug] [2022-11-30T05:43:52.563Z] Time:          Wed Nov 30 2022 11:13:52 GMT+0530 (India Standard Time)
+[debug] [2022-11-30T05:43:52.564Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-11-30T05:43:52.569Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2022-11-30T05:43:52.714Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-11-30T05:43:52.714Z] > authorizing via signed-in user (ankit65bajpai@gmail.com)
+[debug] [2022-11-30T05:43:52.715Z] [iam] checking project e-commerce-website-a04e4 for permissions ["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]
+[debug] [2022-11-30T05:43:52.716Z] > refreshing access token with scopes: []
+[debug] [2022-11-30T05:43:52.717Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-11-30T05:43:52.717Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-11-30T05:43:54.269Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2022-11-30T05:43:54.269Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-11-30T05:43:54.296Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/e-commerce-website-a04e4:testIamPermissions [none]
+[debug] [2022-11-30T05:43:54.297Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/e-commerce-website-a04e4:testIamPermissions x-goog-quota-user=projects/e-commerce-website-a04e4
+[debug] [2022-11-30T05:43:54.298Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/e-commerce-website-a04e4:testIamPermissions {"permissions":["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]}
+[debug] [2022-11-30T05:43:54.548Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2022-11-30T05:43:54.548Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2022-11-30T05:43:56.395Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/e-commerce-website-a04e4:testIamPermissions 200
+[debug] [2022-11-30T05:43:56.395Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/e-commerce-website-a04e4:testIamPermissions {"permissions":["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]}
+[debug] [2022-11-30T05:43:56.400Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/e-commerce-website-a04e4 [none]
+[debug] [2022-11-30T05:43:57.521Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/e-commerce-website-a04e4 200
+[debug] [2022-11-30T05:43:57.521Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/e-commerce-website-a04e4 {"projectId":"e-commerce-website-a04e4","projectNumber":"143009758060","displayName":"aKart","name":"projects/e-commerce-website-a04e4","resources":{"hostingSite":"e-commerce-website-a04e4","realtimeDatabaseInstance":"e-commerce-website-a04e4-default-rtdb"},"state":"ACTIVE","etag":"1_b96a54b6-d91f-4516-b20c-2c732f30d245"}
+[debug] [2022-11-30T05:43:57.523Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/e-commerce-website-a04e4 [none]
+[debug] [2022-11-30T05:43:59.375Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/e-commerce-website-a04e4 200
+[debug] [2022-11-30T05:43:59.375Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/e-commerce-website-a04e4 {"projectId":"e-commerce-website-a04e4","projectNumber":"143009758060","displayName":"aKart","name":"projects/e-commerce-website-a04e4","resources":{"hostingSite":"e-commerce-website-a04e4","realtimeDatabaseInstance":"e-commerce-website-a04e4-default-rtdb"},"state":"ACTIVE","etag":"1_b96a54b6-d91f-4516-b20c-2c732f30d245"}
+[info] 
+[info] === Deploying to 'e-commerce-website-a04e4'...
+[info] 
+[info] i  deploying database, hosting 
+[info] i  database: checking rules syntax... 
+[debug] [2022-11-30T05:43:59.395Z] >>> [apiv2][query] GET https://firebasedatabase.googleapis.com/v1beta/projects/e-commerce-website-a04e4/locations/-/instances/e-commerce-website-a04e4-default-rtdb [none]
+[debug] [2022-11-30T05:44:02.085Z] <<< [apiv2][status] GET https://firebasedatabase.googleapis.com/v1beta/projects/e-commerce-website-a04e4/locations/-/instances/e-commerce-website-a04e4-default-rtdb 200
+[debug] [2022-11-30T05:44:02.085Z] <<< [apiv2][body] GET https://firebasedatabase.googleapis.com/v1beta/projects/e-commerce-website-a04e4/locations/-/instances/e-commerce-website-a04e4-default-rtdb {"name":"projects/143009758060/locations/us-central1/instances/e-commerce-website-a04e4-default-rtdb","project":"projects/143009758060","databaseUrl":"https://e-commerce-website-a04e4-default-rtdb.firebaseio.com","type":"DEFAULT_DATABASE","state":"ACTIVE"}
+[debug] [2022-11-30T05:44:02.091Z] >>> [apiv2][query] PUT https://e-commerce-website-a04e4-default-rtdb.firebaseio.com/.settings/rules.json dryRun=true
+[debug] [2022-11-30T05:44:02.092Z] >>> [apiv2][body] PUT https://e-commerce-website-a04e4-default-rtdb.firebaseio.com/.settings/rules.json "{\n  \"rules\": {\n    \".read\": \"now < 1668191400000\",  // 2022-11-12\n    \".write\": \"now < 1668191400000\",  // 2022-11-12\n  }\n}"
+[debug] [2022-11-30T05:44:03.016Z] <<< [apiv2][status] PUT https://e-commerce-website-a04e4-default-rtdb.firebaseio.com/.settings/rules.json 200
+[debug] [2022-11-30T05:44:03.017Z] <<< [apiv2][body] PUT https://e-commerce-website-a04e4-default-rtdb.firebaseio.com/.settings/rules.json {"status":"ok"}
+[info] +  database: rules syntax for database e-commerce-website-a04e4-default-rtdb is valid 
+[debug] [2022-11-30T05:44:03.026Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/e-commerce-website-a04e4/versions [none]
+[debug] [2022-11-30T05:44:03.026Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/e-commerce-website-a04e4/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2022-11-30T05:44:05.209Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/e-commerce-website-a04e4/versions 200
+[debug] [2022-11-30T05:44:05.209Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/e-commerce-website-a04e4/versions {"name":"projects/143009758060/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[e-commerce-website-a04e4]: beginning deploy... 
+[info] i  hosting[e-commerce-website-a04e4]: found 21 files in build 
+[debug] [2022-11-30T05:44:05.278Z] [hosting] uploading with 200 concurrency
+[debug] [2022-11-30T05:44:06.818Z] [hosting] hash cache [YnVpbGQ] stored for 21 files
+[debug] [2022-11-30T05:44:06.819Z] [hosting][hash queue][FINAL] {"max":1496,"min":79,"avg":514.0952380952381,"active":0,"complete":21,"success":21,"errored":0,"retried":0,"total":21,"elapsed":1529}
+[debug] [2022-11-30T05:44:06.821Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/143009758060/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51:populateFiles [none]
+[debug] [2022-11-30T05:44:06.821Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/143009758060/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51:populateFiles {"files":{"/asset-manifest.json":"a9a0ebf75ebca6b90bc5b4600becb92f1a9351e88d0e1dbdc167de37011474b4","/index.html":"b4d03365db79232be78c2fd241692222e85aed8884af7343bdfacdedcf5ab4d8","/static/js/main.b50d8463.js.LICENSE.txt":"c166078c4780daa5d49ad9aca7b41c0f354e6e8e91b71ea5645096b683166f7d","/static/media/cart2.1380e138cba1dbf0be29.jpeg":"dfcd092acb4196d720300ce7340dac021254b248b317d5f5d7e94dd5dd9db6bc","/static/css/main.6ac4adda.css":"6a8263d15957c3b5438eb7f16acd19c7915fed139b243f5b6f935385d2e175c9","/static/media/shoe3.e864fda72ec173d9bbb7.png":"9fee63e7dfe4cd5e3f067756e26818b846acfddd7f0002b155151d9ec0b9a57f","/static/media/shoe5.82273839bc1fa5bf924c.png":"28f07f93a7f7e9ef1c6902d39e30559a42cb2b1d08215fbf8df2ab5a4af43c22","/static/media/slide-5.b891b4c1a5878a96e3c3.png":"78e56ad23ea033bf9abebbca4f01b10a66fcffe9723e00759275b63ea96f4596","/static/media/slide-4.e955d974789257e20dd8.png":"887247e22e5bd1eb53e5f13f43ec5242c970ed3c983e72c4de89b30697a2453b","/static/media/slide-1.32d884080c931bcbee29.png":"00a965eed2761c40644411be77dbcac3df327ff069847f5f8ad4734462a72529","/static/js/main.b50d8463.js":"7abe85dfd9ba8c3bf1590e89f7332d0ec8ce7ad793e4b776840d325deab7f519","/static/media/shirt.39be3592d05d0724c277.jpg":"ee8836d37e3759a7837fa419e39ee0e99b2d0e888325b86725858869ab8ebaab","/static/css/main.6ac4adda.css.map":"e157fac9ce2a79acdaec3d22b337ba0fba911c88200d821e8271d2bf8e0279c6","/static/media/shoe.767417bea17688d6d8ce.jpg":"12fdb97a2ce26c608412acbc402c6c1f2cd5db0752773b84409a7a49826ac254","/static/js/main.b50d8463.js.map":"7810070d2342ded832ec655f99b3c1e1cf362189be9783f85da5ccd98d1a2161","/static/media/contact1.8dcf56e670495d416985.jpg":"d634470db73d09f19aa03e281ef8bda143047ce4407e973a98c6f9f59a78c1e9","/static/media/woman9.64dcdf1bac080dc3b784.jpg":"065d2684d8cf2865e4ea70eae48f67f5488844d89ad5a41d32441356d3a20ba6","/static/media/men9.64cfeb9d4ddc5e4e6b61.jpg":"101a8edfbb72859e48900e82ff82708a83a6fa281deb873fb0aab8419159285d","/static/media/woman7.d98b7897a954d594b76f.jpeg":"bb36e4be0c46c3c031664aab5372ac4413ae30ef60cc6f57b2d77d9063658913","/static/media/men8.1b15f7fcc08b9042ee5a.jpg":"3091e8138546f3cd7b3119964e7fe7511745028c1f79c5bc03adb960bc812379","/static/media/woman8.8786cd8491bb8d33d503.jpeg":"e7cabc80cf68fc482f154c11a9405a0f7669666a57eb129a0adfc3653e9afec9"}}
+[debug] [2022-11-30T05:44:08.378Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/143009758060/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51:populateFiles 200
+[debug] [2022-11-30T05:44:08.378Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/143009758060/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51:populateFiles {"uploadRequiredHashes":["7abe85dfd9ba8c3bf1590e89f7332d0ec8ce7ad793e4b776840d325deab7f519","7810070d2342ded832ec655f99b3c1e1cf362189be9783f85da5ccd98d1a2161","a9a0ebf75ebca6b90bc5b4600becb92f1a9351e88d0e1dbdc167de37011474b4","6a8263d15957c3b5438eb7f16acd19c7915fed139b243f5b6f935385d2e175c9","e157fac9ce2a79acdaec3d22b337ba0fba911c88200d821e8271d2bf8e0279c6","b4d03365db79232be78c2fd241692222e85aed8884af7343bdfacdedcf5ab4d8"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51/files"}
+[debug] [2022-11-30T05:44:08.386Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51/files/7abe85dfd9ba8c3bf1590e89f7332d0ec8ce7ad793e4b776840d325deab7f519 [none]
+[debug] [2022-11-30T05:44:08.386Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51/files/7abe85dfd9ba8c3bf1590e89f7332d0ec8ce7ad793e4b776840d325deab7f519 [stream]
+[debug] [2022-11-30T05:44:08.391Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51/files/7810070d2342ded832ec655f99b3c1e1cf362189be9783f85da5ccd98d1a2161 [none]
+[debug] [2022-11-30T05:44:08.392Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51/files/7810070d2342ded832ec655f99b3c1e1cf362189be9783f85da5ccd98d1a2161 [stream]
+[debug] [2022-11-30T05:44:08.396Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51/files/a9a0ebf75ebca6b90bc5b4600becb92f1a9351e88d0e1dbdc167de37011474b4 [none]
+[debug] [2022-11-30T05:44:08.396Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51/files/a9a0ebf75ebca6b90bc5b4600becb92f1a9351e88d0e1dbdc167de37011474b4 [stream]
+[debug] [2022-11-30T05:44:08.400Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51/files/6a8263d15957c3b5438eb7f16acd19c7915fed139b243f5b6f935385d2e175c9 [none]
+[debug] [2022-11-30T05:44:08.400Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51/files/6a8263d15957c3b5438eb7f16acd19c7915fed139b243f5b6f935385d2e175c9 [stream]
+[debug] [2022-11-30T05:44:08.404Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51/files/e157fac9ce2a79acdaec3d22b337ba0fba911c88200d821e8271d2bf8e0279c6 [none]
+[debug] [2022-11-30T05:44:08.405Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51/files/e157fac9ce2a79acdaec3d22b337ba0fba911c88200d821e8271d2bf8e0279c6 [stream]
+[debug] [2022-11-30T05:44:08.409Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51/files/b4d03365db79232be78c2fd241692222e85aed8884af7343bdfacdedcf5ab4d8 [none]
+[debug] [2022-11-30T05:44:08.409Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51/files/b4d03365db79232be78c2fd241692222e85aed8884af7343bdfacdedcf5ab4d8 [stream]
+[debug] [2022-11-30T05:44:08.413Z] [hosting][populate queue][FINAL] {"max":1570,"min":1570,"avg":1570,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1598}
+[debug] [2022-11-30T05:44:08.414Z] [hosting] uploads queued: 6
+[debug] [2022-11-30T05:44:14.136Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51/files/7abe85dfd9ba8c3bf1590e89f7332d0ec8ce7ad793e4b776840d325deab7f519 200
+[debug] [2022-11-30T05:44:14.137Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51/files/7abe85dfd9ba8c3bf1590e89f7332d0ec8ce7ad793e4b776840d325deab7f519 [stream]
+[debug] [2022-11-30T05:44:17.420Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51/files/a9a0ebf75ebca6b90bc5b4600becb92f1a9351e88d0e1dbdc167de37011474b4 200
+[debug] [2022-11-30T05:44:17.421Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51/files/a9a0ebf75ebca6b90bc5b4600becb92f1a9351e88d0e1dbdc167de37011474b4 [stream]
+[debug] [2022-11-30T05:44:17.993Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51/files/e157fac9ce2a79acdaec3d22b337ba0fba911c88200d821e8271d2bf8e0279c6 200
+[debug] [2022-11-30T05:44:17.993Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51/files/e157fac9ce2a79acdaec3d22b337ba0fba911c88200d821e8271d2bf8e0279c6 [stream]
+[debug] [2022-11-30T05:44:18.015Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51/files/b4d03365db79232be78c2fd241692222e85aed8884af7343bdfacdedcf5ab4d8 200
+[debug] [2022-11-30T05:44:18.015Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51/files/b4d03365db79232be78c2fd241692222e85aed8884af7343bdfacdedcf5ab4d8 [stream]
+[debug] [2022-11-30T05:44:18.709Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51/files/7810070d2342ded832ec655f99b3c1e1cf362189be9783f85da5ccd98d1a2161 200
+[debug] [2022-11-30T05:44:18.709Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51/files/7810070d2342ded832ec655f99b3c1e1cf362189be9783f85da5ccd98d1a2161 [stream]
+[debug] [2022-11-30T05:44:26.894Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51/files/6a8263d15957c3b5438eb7f16acd19c7915fed139b243f5b6f935385d2e175c9 200
+[debug] [2022-11-30T05:44:26.895Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51/files/6a8263d15957c3b5438eb7f16acd19c7915fed139b243f5b6f935385d2e175c9 [stream]
+[debug] [2022-11-30T05:44:26.895Z] [hosting][upload queue][FINAL] {"max":18512,"min":5759,"avg":10479.666666666666,"active":0,"complete":6,"success":6,"errored":0,"retried":0,"total":6,"elapsed":18516}
+[info] +  hosting[e-commerce-website-a04e4]: file upload complete 
+[debug] [2022-11-30T05:44:26.900Z] [hosting] deploy completed after 21682ms
+[info] i  database: releasing rules... 
+[debug] [2022-11-30T05:44:26.915Z] >>> [apiv2][query] GET https://firebasedatabase.googleapis.com/v1beta/projects/e-commerce-website-a04e4/locations/-/instances/e-commerce-website-a04e4-default-rtdb [none]
+[debug] [2022-11-30T05:44:27.898Z] <<< [apiv2][status] GET https://firebasedatabase.googleapis.com/v1beta/projects/e-commerce-website-a04e4/locations/-/instances/e-commerce-website-a04e4-default-rtdb 200
+[debug] [2022-11-30T05:44:27.898Z] <<< [apiv2][body] GET https://firebasedatabase.googleapis.com/v1beta/projects/e-commerce-website-a04e4/locations/-/instances/e-commerce-website-a04e4-default-rtdb {"name":"projects/143009758060/locations/us-central1/instances/e-commerce-website-a04e4-default-rtdb","project":"projects/143009758060","databaseUrl":"https://e-commerce-website-a04e4-default-rtdb.firebaseio.com","type":"DEFAULT_DATABASE","state":"ACTIVE"}
+[debug] [2022-11-30T05:44:27.904Z] >>> [apiv2][query] PUT https://e-commerce-website-a04e4-default-rtdb.firebaseio.com/.settings/rules.json 
+[debug] [2022-11-30T05:44:27.904Z] >>> [apiv2][body] PUT https://e-commerce-website-a04e4-default-rtdb.firebaseio.com/.settings/rules.json "{\n  \"rules\": {\n    \".read\": \"now < 1668191400000\",  // 2022-11-12\n    \".write\": \"now < 1668191400000\",  // 2022-11-12\n  }\n}"
+[debug] [2022-11-30T05:44:28.730Z] <<< [apiv2][status] PUT https://e-commerce-website-a04e4-default-rtdb.firebaseio.com/.settings/rules.json 200
+[debug] [2022-11-30T05:44:28.730Z] <<< [apiv2][body] PUT https://e-commerce-website-a04e4-default-rtdb.firebaseio.com/.settings/rules.json {"status":"ok"}
+[info] +  database: rules for database e-commerce-website-a04e4-default-rtdb released successfully 
+[debug] [2022-11-30T05:44:28.733Z] [
+  {
+    "config": {
+      "public": "build",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "e-commerce-website-a04e4"
+    },
+    "version": "projects/143009758060/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51"
+  }
+]
+[info] i  hosting[e-commerce-website-a04e4]: finalizing version... 
+[debug] [2022-11-30T05:44:28.744Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51 updateMask=status%2Cconfig
+[debug] [2022-11-30T05:44:28.745Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51 {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}}
+[debug] [2022-11-30T05:44:30.491Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51 200
+[debug] [2022-11-30T05:44:30.492Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51 {"name":"projects/143009758060/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-11-30T05:44:05.155972Z","createUser":{"email":"ankit65bajpai@gmail.com"},"finalizeTime":"2022-11-30T05:44:30.987755Z","finalizeUser":{"email":"ankit65bajpai@gmail.com"}}
+[debug] [2022-11-30T05:44:30.492Z] [hosting] finalized version for e-commerce-website-a04e4:[object Object]
+[info] +  hosting[e-commerce-website-a04e4]: version finalized 
+[info] i  hosting[e-commerce-website-a04e4]: releasing new version... 
+[debug] [2022-11-30T05:44:30.496Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/e-commerce-website-a04e4/channels/live/releases versionName=projects%2F143009758060%2Fsites%2Fe-commerce-website-a04e4%2Fversions%2Fb5afba3712cc3d51
+[debug] [2022-11-30T05:44:30.497Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/e-commerce-website-a04e4/channels/live/releases {}
+[debug] [2022-11-30T05:44:35.234Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/e-commerce-website-a04e4/channels/live/releases 200
+[debug] [2022-11-30T05:44:35.235Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/e-commerce-website-a04e4/channels/live/releases {"name":"projects/143009758060/sites/e-commerce-website-a04e4/channels/live/releases/1669787074979703","version":{"name":"projects/143009758060/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-11-30T05:44:05.155972Z","createUser":{"email":"ankit65bajpai@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu3tyFKq5UJVMMO8ctJQdWrnHLyQRUyB9vgjhnZ4qA"},"finalizeTime":"2022-11-30T05:44:30.987755Z","finalizeUser":{"email":"ankit65bajpai@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu3tyFKq5UJVMMO8ctJQdWrnHLyQRUyB9vgjhnZ4qA"}},"type":"DEPLOY","releaseTime":"2022-11-30T05:44:34.979703739Z","releaseUser":{"email":"ankit65bajpai@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu3tyFKq5UJVMMO8ctJQdWrnHLyQRUyB9vgjhnZ4qA"}}
+[debug] [2022-11-30T05:44:35.236Z] [hosting] release: {"name":"projects/143009758060/sites/e-commerce-website-a04e4/channels/live/releases/1669787074979703","version":{"name":"projects/143009758060/sites/e-commerce-website-a04e4/versions/b5afba3712cc3d51","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-11-30T05:44:05.155972Z","createUser":{"email":"ankit65bajpai@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu3tyFKq5UJVMMO8ctJQdWrnHLyQRUyB9vgjhnZ4qA"},"finalizeTime":"2022-11-30T05:44:30.987755Z","finalizeUser":{"email":"ankit65bajpai@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu3tyFKq5UJVMMO8ctJQdWrnHLyQRUyB9vgjhnZ4qA"}},"type":"DEPLOY","releaseTime":"2022-11-30T05:44:34.979703739Z","releaseUser":{"email":"ankit65bajpai@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu3tyFKq5UJVMMO8ctJQdWrnHLyQRUyB9vgjhnZ4qA"}}
+[info] +  hosting[e-commerce-website-a04e4]: release complete 
+[info] 
+[info] +  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/e-commerce-website-a04e4/overview
+[info] Hosting URL: https://e-commerce-website-a04e4.web.app
+[debug] [2022-11-30T05:44:42.020Z] Error: Timed out.
+    at Timeout._onTimeout (C:\Users\ankit\AppData\Roaming\npm\node_modules\firebase-tools\lib\utils.js:253:49)
+    at listOnTimeout (node:internal/timers:559:17)
+    at processTimers (node:internal/timers:502:7)
+[error] 
+[error] Error: An unexpected error has occurred.

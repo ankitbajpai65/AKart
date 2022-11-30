@@ -24,11 +24,11 @@ const CartItem = (props) => {
             <div className="col-3 cart_page_img cartInfo d-flex align-items-center">
                 <img src={props.image} alt="" />
             </div>
-            <div className="col-lg-5 col-4 cartInfo p-5">
+            <div className="col-lg-5 col-4 cartInfo p-sm-5">
                 <span className="d-block fs-3 mb-3">{props.title}</span>
                 <span className="fw-bold">₹{props.price}/-</span>
             </div>
-            <div className="col-lg-3 col-4 cartInfo p-4">
+            <div className="col-lg-3 col-4 cartInfo p-sm-4">
                 <span className="d-block mt-4 ms-3 mb-3">
                     <RemoveIcon onClick={() => { updateItemQuantity(props.id, props.quantity - 1) }} className="removeIcon me-3 fs-3" />
                     <span className="figure">{props.quantity}</span>

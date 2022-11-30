@@ -231,17 +231,15 @@ html {
 
 /* MEDIA QUERY */
 
-@media only screen and (max-width: 415px) {
-    /* .container-slider {
-        width: 106vw;
-    } */
-}
-
 @media only screen and (max-width: 600px) {
     .sections_subDiv {
         height: 88rem;
         flex-direction: column;
     }
+
+    /* .container-slider {
+        height: 90vh;
+    } */
 
     .title {
         font-size: 4.5rem;
