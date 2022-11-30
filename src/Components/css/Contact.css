@@ -84,3 +84,40 @@
     /* transform: scale(1.05); */
     background-position: right center;
 }
+
+/* MEDIA QUERY */
+@media only screen and (max-width: 600px) {
+
+    html {
+        font-size: 50%;
+    }
+
+    .form {
+        width: 45%;
+    }
+
+    .contactDiv {
+        height: 30rem;
+    }
+
+    .form button {
+        width: 93%;
+        padding: 1rem 2rem;
+        margin-top: 3rem;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+
+    /* html {
+        font-size: 55%;
+    } */
+    .form {
+        width: 40%;
+    }
+
+    .contactDiv {
+        height: 35rem;
+    }
+
+}

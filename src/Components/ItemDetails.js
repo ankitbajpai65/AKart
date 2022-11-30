@@ -41,14 +41,14 @@ export default function ItemDetails() {
             <div>
                 <div className="container itemDetails">
                     <div className="row h-100">
-                        <div className="col-5 imageSec">
+                        <div className="col-md-5 col-10 offset-md-0 offset-1 imageSec">
                             <div className="row imageDiv">
                                 <div className="col-4 sideImgDiv">
                                     <img src={location.state.val.category.image} alt="" className="sideImg" onClick={(e) => firstImageClicked(e, location.state.val.category.image)} />
                                     <img src={location.state.val.images[1]} alt="" className="sideImg" onClick={() => secImageClicked(location.state.val.images[1])} />
                                     <img src={location.state.val.images[2]} alt="" className="sideImg" onClick={() => thirdImageClicked(location.state.val.images[2])} />
                                 </div>
-                                <div className="col-8 mainImgDiv">
+                                <div className="col-xl-7 col-8 mainImgDiv">
                                     <img src={img} alt="" className="mainImg" />
                                 </div>
                             </div>
@@ -63,7 +63,7 @@ export default function ItemDetails() {
                                 <button className="btn btn-primary">BUY NOW</button>
                             </div>
                         </div>
-                        <div className="col-6 offset-1 infoDiv">
+                        <div className="col-md-6 col-10 offset-1 infoDiv">
                             <div className="">
                                 <p className="fw-semibold">{location.state.val.title}</p>
                                 <span>

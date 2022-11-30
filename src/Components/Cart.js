@@ -29,7 +29,7 @@ const Cart = () => {
         <div className="cart container-fluid" style={{ minHeight: !isLogin && "70vh", background: "white" }}>
             {isLogin ?
                 (<div className="row d-flex justify-content-center cartDiv">
-                    <div className={isEmpty ? "col-7 catalogue me-4 emptyCart" : "col-7 catalogue me-4"}>
+                    <div className={isEmpty ? "col-md-7 col-11 catalogue emptyCart" : "col-md-7 col-11 catalogue"}>
                         {
                             (isEmpty) ? (
                                 <div>
@@ -46,7 +46,7 @@ const Cart = () => {
                                 })
                         }
                     </div>
-                    <div className="col-3 totalPrice ms-4 d-flex flex-column justify-space-around">
+                    <div className="col-md-3 col-11 totalPrice ms-md-4 d-flex flex-column justify-space-around">
                         <div className="row priceSec" id="head">
                             <span className="type col-6">PRICE DETAILS</span>
                         </div>

@@ -22,6 +22,43 @@
     list-style: none;
 }
 
+.mobileNav {
+    /* background-color: white; */
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.showMobNav {
+    background-color: white;
+    transition: 0.5s;
+}
+
+.navAnim,
+.mobileNav>ul {
+    animation-name: example;
+    animation-duration: .4s;
+}
+
+@keyframes example {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: 32.5%;
+    }
+}
+
+.hamburger {
+    color: white;
+    transform: scale(2);
+    margin-left: 1rem;
+}
+
+.changeHamburgerStyle {
+    color: black;
+}
+
 .logo {
     text-decoration: none;
     color: white;
@@ -104,7 +141,19 @@
     color: black;
 }
 
+.cartIconInMob {
+    color: black;
+}
+
 .loginBtn {
     width: 9rem;
     font-size: 1.5rem;
+}
+
+/* MEDIA QUERY */
+
+@media only screen and (max-width: 632px) {
+    .cartIcon {
+        font-size: 2rem;
+    }
 }

@@ -22,7 +22,8 @@
     /* border: 2px solid black; */
     background: white;
     height: 65%;
-    width: 28%;
+    /* width: 28%; */
+    width: 42rem;
     padding: 3rem;
     border-radius: 2rem;
     position: relative;
@@ -77,4 +78,17 @@
     font-size: 1.7rem;
     font-weight: 500;
     /* text-decoration: underline; */
+}
+
+/* MEDIA QUERY */
+@media only screen and (max-width: 600px) {
+    .loginFormDiv {
+        width: 35rem;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+    .loginFormDiv {
+        width: 38rem;
+    }
 }

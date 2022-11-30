@@ -31,7 +31,8 @@ html {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    /* width: 100%; */
+    width: 101vw;
     height: 100%;
     opacity: 0;
     transition: opacity ease-in-out 0.4s;
@@ -170,6 +171,10 @@ html {
 
 .sections_subDiv {
     height: 42rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    /* flex-wrap: wrap; */
 }
 
 .card_home {
@@ -222,4 +227,161 @@ html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+/* MEDIA QUERY */
+
+@media only screen and (max-width: 415px) {
+    /* .container-slider {
+        width: 106vw;
+    } */
+}
+
+@media only screen and (max-width: 600px) {
+    .sections_subDiv {
+        height: 88rem;
+        flex-direction: column;
+    }
+
+    .title {
+        font-size: 4.5rem;
+    }
+
+    .subtitle {
+        font-size: 2.5rem;
+    }
+
+    .slide:nth-child(1) {
+        background-size: 800px 630px;
+        background-position: 75% 0%;
+    }
+
+    .slide:nth-child(2) {
+        background-position: 0rem 0rem;
+        background-size: 800px 630px;
+    }
+
+    .slide:nth-child(3) {
+        background-position: -8rem -2rem;
+        background-size: 635px 680px;
+    }
+
+    .slide:nth-child(4) {
+        background-position: 70% 0%;
+        background-size: 800px 630px;
+    }
+
+    .btn-slide {
+        background: transparent;
+        border: 1px solid transparent;
+        color: white;
+    }
+
+    .prev {
+        left: -5px;
+    }
+
+    .next {
+        right: -5px;
+    }
+
+    .btn-slide i {
+        font-size: 3rem;
+    }
+
+    .card_home {
+        width: 20em;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+    .sections_subDiv {
+        height: 88rem;
+        flex-direction: column;
+    }
+
+    .title {
+        font-size: 5rem;
+    }
+
+    .subtitle {
+        font-size: 3rem;
+    }
+
+    .slide:nth-child(1) {
+        /* background-size: 100% 100%; */
+        background-size: 800px 627px;
+        background-position: -7rem 0rem;
+    }
+
+    .slide:nth-child(2) {
+        background-position: 18rem 0rem;
+        background-size: 850px 630px;
+    }
+
+    .slide:nth-child(3) {
+        background-position: 15rem -4rem;
+        background-size: 91% 111%;
+    }
+
+    .slide:nth-child(4) {
+        background-position: 25% 0%;
+        background-size: 800px 627px;
+    }
+
+    .btn-slide {
+        width: 45px;
+        height: 45px;
+    }
+
+    .card_home {
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+    html {
+        font-size: 50%;
+    }
+
+    .title {
+        font-size: 6rem;
+    }
+
+    .slide:nth-child(1) {
+        /* background-size: 100% 100%; */
+        background-size: 800px 625px;
+    }
+
+    .slide:nth-child(2) {
+        background-position: 38rem 0rem;
+        background-size: 801px 630px;
+    }
+
+    .slide:nth-child(3) {
+        background-position: 26rem -4rem;
+        background-size: 80% 111%;
+    }
+
+    .slide:nth-child(4) {
+        /* background-size: 90% 100%; */
+        background-size: 800px 630px;
+        background-position: 90% 0%;
+    }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    .slide:nth-child(1) {
+        background-size: 800px 627px;
+    }
+
+    .slide:nth-child(2) {
+        background-position: 60rem 0rem;
+        background-size: 801px 630px;
+    }
+
+    .slide:nth-child(4) {
+        background-size: 800px 630px;
+        /* background-position: 90% 0%; */
+    }
 }

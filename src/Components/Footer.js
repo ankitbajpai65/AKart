@@ -12,7 +12,7 @@ const Footer = () => {
             justify-content-center">
                 <div className="footerDiv mb-3">
                     <div className="row">
-                        <div className="categories col-3 offset-1">
+                        <div className="categories col-sm-3 offset-sm-1">
                             <h3 className="heading">CATEGORIES</h3>
                             <ul>
                                 <li>
@@ -29,7 +29,7 @@ const Footer = () => {
                                 </li>
                             </ul>
                         </div>
-                        <div className="help col-2">
+                        <div className="help col-sm-2">
                             <h3 className="heading">HELP</h3>
                             <ul>
                                 <li>
@@ -46,13 +46,12 @@ const Footer = () => {
                                 </li>
                             </ul>
                         </div>
-                        <div className="col-3" id="contact_sec_in_footer">
+                        <div className="col-sm-3" id="contact_sec_in_footer">
                             <h3 className="heading">GET IN TOUCH</h3>
                             <div className="row">
-                                <p className="mb-5">Any questions? Let us know in store at BP 473 Complexe universitaire Al Qods, Oujda 60000 or call us on (+212) 65964665</p>
-                            </div>
+                                <p className="mb-5">Any questions? Let us know in store at Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis, consectetur.</p>                      </div>
                             <div className="row">
-                                <div className="col-2">
+                                <div className="col-2 offset-sm-0 offset-3">
                                     <Link to="/" className="footer_icon_link">
                                         <FacebookIcon className="footer_icons" />
                                     </Link>
@@ -71,9 +70,9 @@ const Footer = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-2">
+                        <div className="col-sm-2 newsDiv">
                             <h3 className="heading">NEWSLETTER</h3>
-                            <div className="row">
+                            <div className="row newsletterDiv">
                                 <input type="text" placeholder="Enter email" className="p-1 ps-4" />
                                 <button className="subscribeBtn btn btn-secondary m-auto mt-5">SUBSCRIBE</button>
                             </div>

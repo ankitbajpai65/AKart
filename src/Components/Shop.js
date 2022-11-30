@@ -77,7 +77,7 @@ const Shop = () => {
                 <div id="shop_main_div">
                     <h1 className="shop_heading display-5 fw-bold">{heading}</h1>
                     <nav className="container-fluid mb-5">
-                        <div className="col-6 shop_navbar_div">
+                        <div className="col-md-6 shop_navbar_div">
                             <ul className="row">
                                 <li className="col-2">
                                     <button to="/" className="shop_navbar_links" onClick={() => populateAllProducts(itemToDisplay)}>All</button>
@@ -101,7 +101,7 @@ const Shop = () => {
                         </div>
                     </nav>
                     <div className="container-fluid">
-                        <div className="row">
+                        <div className="row item_container">
                             {item.map((val, index) => {
                                 {/* console.log(val.images[0]); */ }
                                 return <Item title={val.title} price={val.price} image={val.images[0]} val={val} starId={val.category.id} id={val.id} key={index} />

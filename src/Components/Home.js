@@ -104,17 +104,16 @@ const Home = () => {
                 </button>
             </div>
             <div className="container-fluid sections">
-                <div className="sections_subDiv row d-flex
-                justify-content-evenly align-items-center">
-                    <div className="col-md-3 card_home men">
+                <div className="sections_subDiv">
+                    <div className="card_home men">
                         <h1 className="card_heading">Men</h1>
                         <Link to="/shop" className="shop_btn">Shop Now</Link>
                     </div>
-                    <div className="col-md-3 card_home women">
+                    <div className="card_home women">
                         <h1 className="card_heading">Women</h1>
                         <Link to="/shop" className="shop_btn">Shop Now</Link>
                     </div>
-                    <div className="col-md-3 card_home accessories">
+                    <div className="card_home accessories">
                         <h1 className="card_heading">Accessories</h1>
                         <Link to="/shop" className="shop_btn">Shop Now</Link>
                     </div>

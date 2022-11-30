@@ -65,3 +65,53 @@
     border-radius: 2rem;
     letter-spacing: 1px;
 }
+
+/* MEDIA QUERY */
+
+@media only screen and (max-width: 600px) {
+    html {
+        font-size: 55%;
+    }
+
+    .footer {
+        text-align: center;
+        height: fit-content;
+    }
+
+    .categories,
+    .help,
+    #contact_sec_in_footer {
+        margin-bottom: 2rem;
+    }
+
+    .newsDiv {
+        margin-top: 2rem;
+    }
+
+    .newsletterDiv {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer input,
+    .footer button {
+        width: 40%;
+        margin: auto;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+    html {
+        font-size: 55%;
+    }
+
+    #contact_sec_in_footer {
+        margin-right: 2rem;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+    html {
+        font-size: 55%;
+    }
+}
