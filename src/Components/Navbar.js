@@ -107,7 +107,7 @@ const Navbar = () => {
                         </div>
                     </>
                     :
-                    <div className="row d-flex justify-content-between align-items-center">
+                    <div className="row d-flex justify-content-between align-items-center border">
                         <div className="col-2 offset-1 name">
                             <Link
                                 to="/"

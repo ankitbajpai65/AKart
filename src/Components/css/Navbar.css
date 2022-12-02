@@ -6,11 +6,13 @@
 }
 
 .main_nav_div {
+    /* border: 2px solid black; */
     /* background-color: #B98F77; */
     background-color: transparent;
     position: fixed;
     top: 0;
     z-index: 100;
+    overflow-x: hidden;
 }
 
 .active {
@@ -23,7 +25,6 @@
 }
 
 .mobileNav {
-    /* background-color: white; */
     margin-left: 0;
     margin-right: 0;
 }
@@ -142,7 +143,7 @@
 }
 
 .cartIconInMob {
-    color: black;
+    color: black !important;
 }
 
 .loginBtn {
