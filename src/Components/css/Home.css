@@ -107,11 +107,11 @@ html {
     border-radius: 4rem;
 }
 
-/* .homeBtn:hover {
+.homeBtn:hover {
     border: 2px solid white;
     color: white;
     background: transparent;
-} */
+}
 
 /* .slide:nth-child(4)::before {
     z-index: 1;
@@ -174,7 +174,6 @@ html {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    /* flex-wrap: wrap; */
 }
 
 .card_home {
@@ -184,10 +183,6 @@ html {
     width: 28%;
     margin: 2rem;
     position: relative;
-    /* background-image: url('../../images/shoe.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; */
 }
 
 .card_heading {
@@ -199,13 +194,12 @@ html {
     bottom: 3rem;
     left: 3rem;
     color: white;
-    /* text-decoration: none; */
     transition: .3s ease;
 }
 
 .shop_btn:hover {
     color: white;
-    transform: scale(1.3);
+    transform: scale(1.2);
 }
 
 .men {
@@ -237,10 +231,6 @@ html {
         flex-direction: column;
     }
 
-    /* .container-slider {
-        height: 90vh;
-    } */
-
     .title {
         font-size: 4.5rem;
     }
@@ -250,13 +240,13 @@ html {
     }
 
     .slide:nth-child(1) {
-        background-size: 800px 630px;
+        background-size: 900px 700px;
         background-position: 75% 0%;
     }
 
     .slide:nth-child(2) {
         background-position: 0rem 0rem;
-        background-size: 800px 630px;
+        background-size: 900px 700px;
     }
 
     .slide:nth-child(3) {
@@ -266,7 +256,7 @@ html {
 
     .slide:nth-child(4) {
         background-position: 70% 0%;
-        background-size: 800px 630px;
+        background-size: 900px 700px;
     }
 
     .btn-slide {
@@ -307,14 +297,13 @@ html {
     }
 
     .slide:nth-child(1) {
-        /* background-size: 100% 100%; */
-        background-size: 800px 627px;
-        background-position: -7rem 0rem;
+        background-size: 900px 700px;
+        background-position: -10rem 0rem;
     }
 
     .slide:nth-child(2) {
-        background-position: 18rem 0rem;
-        background-size: 850px 630px;
+        background-position: 12rem 0rem;
+        background-size: 900px 700px;
     }
 
     .slide:nth-child(3) {
@@ -323,8 +312,8 @@ html {
     }
 
     .slide:nth-child(4) {
-        background-position: 25% 0%;
-        background-size: 800px 627px;
+        background-position: 48% 0%;
+        background-size: 900px 700px;
     }
 
     .btn-slide {
@@ -348,12 +337,12 @@ html {
 
     .slide:nth-child(1) {
         /* background-size: 100% 100%; */
-        background-size: 800px 625px;
+        background-size: 900px 700px;
     }
 
     .slide:nth-child(2) {
-        background-position: 38rem 0rem;
-        background-size: 801px 630px;
+        background-position: 28rem 0rem;
+        background-size: 900px 700px;
     }
 
     .slide:nth-child(3) {
@@ -363,23 +352,23 @@ html {
 
     .slide:nth-child(4) {
         /* background-size: 90% 100%; */
-        background-size: 800px 630px;
+        background-size: 900px 700px;
         background-position: 90% 0%;
     }
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
     .slide:nth-child(1) {
-        background-size: 800px 627px;
+        background-size: 900px 700px;
     }
 
     .slide:nth-child(2) {
-        background-position: 60rem 0rem;
-        background-size: 801px 630px;
+        background-position: 55rem 0rem;
+        background-size: 900px 700px;
     }
 
     .slide:nth-child(4) {
-        background-size: 800px 630px;
+        background-size: 900px 700px;
         /* background-position: 90% 0%; */
     }
 }

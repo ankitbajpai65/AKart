@@ -7,6 +7,7 @@ import Cart from './Cart';
 import ItemDetails from './ItemDetails';
 import Login from './Login';
 import Signup from './Signup';
+import Error from './Error';
 import './css/Navbar.css';
 import { signOut } from "firebase/auth";
 import { auth } from './firebase';
@@ -64,11 +65,20 @@ const Navbar = () => {
                         <div className="row d-flex justify-content-between align-items-center">
                             <div className="col-1">
                                 <Link>
-                                    <MenuIcon onClick={handleHamburgerClick} className={`hamburger ${hamburgerClick ? 'changeHamburgerStyle' : ''} ${scroll ? 'changeHamburgerStyle' : ''}`} style={{ color: ((location.pathname === "/shop") || (location.pathname === "/cart") || (location.pathname === "/item_details")) && "black" }} />
+                                    <MenuIcon
+                                        onClick={handleHamburgerClick}
+                                        className={`hamburger ${hamburgerClick ? 'changeHamburgerStyle' : ''} ${scroll ? 'changeHamburgerStyle' : ''}`}
+                                        style={{ color: location.pathname === "/" || location.pathname == "/contact" || location.pathname === "/login" || location.pathname === "/signup" ? "white" : "black" }}
+                                    />
                                 </Link>
                             </div>
                             <div className="col-5 login d-flex justify-content-evenly">
-                                <Link to="/cart"><i className={`bi bi-cart3 cartIcon ${scroll ? 'cartIconAfterScroll' : ''} ${hamburgerClick ? 'cartIconInMob' : ''}`} style={{ color: ((location.pathname === "/shop") || (location.pathname === "/cart") || (location.pathname === "/item_details")) && "black" }} /></Link>
+                                <Link to="/cart">
+                                    <i
+                                        className={`bi bi-cart3 cartIcon ${scroll ? 'cartIconAfterScroll' : ''} ${hamburgerClick ? 'cartIconInMob' : ''}`}
+                                        style={{ color: location.pathname === "/" || location.pathname == "/contact" || location.pathname === "/login" || location.pathname === "/signup" ? "white" : "black" }}
+                                    />
+                                </Link>
                                 {displayLogoutBtn ?
                                     (<Link>
                                         <button className="loginBtn btn btn-secondary" onClick={handleLogout}>Logout</button>
@@ -99,23 +109,47 @@ const Navbar = () => {
                     :
                     <div className="row d-flex justify-content-between align-items-center">
                         <div className="col-2 offset-1 name">
-                            <Link to="/" style={{ color: ((location.pathname === "/shop") || (location.pathname === "/cart") || (location.pathname === "/item_details")) && "black" }} className={`logo ${scroll ? 'logoAfterScroll' : ''}`}>aKart</Link>
+                            <Link
+                                to="/"
+                                style={{ color: location.pathname === "/" || location.pathname == "/contact" || location.pathname === "/login" || location.pathname === "/signup" ? "white" : "black" }}
+                                className={`logo ${scroll ? 'logoAfterScroll' : ''}`}>
+                                aKart
+                            </Link>
                         </div>
                         <div className="col-6 linkDiv">
                             <ul className="row">
                                 <li className="col-3 mt-3">
-                                    <Link to="/" style={{ color: ((location.pathname === "/shop") || (location.pathname === "/cart") || (location.pathname === "/item_details")) && "black" }} className={`${scroll ? 'navLinksAfterScroll' : 'navLinks'}`}>Home</Link>
+                                    <Link
+                                        to="/"
+                                        style={{ color: location.pathname === "/" || location.pathname == "/contact" || location.pathname === "/login" || location.pathname === "/signup" ? "white" : "black" }} className={`${scroll ? 'navLinksAfterScroll' : 'navLinks'}`}>
+                                        Home
+                                    </Link>
                                 </li>
                                 <li className="col-3 mt-3">
-                                    <Link style={{ color: ((location.pathname === "/shop") || (location.pathname === "/cart") || (location.pathname === "/item_details")) && "black" }} to="/shop" className={`${scroll ? 'navLinksAfterScroll' : 'navLinks'}`}>Shop</Link>
+                                    <Link
+                                        style={{ color: location.pathname === "/" || location.pathname == "/contact" || location.pathname === "/login" || location.pathname === "/signup" ? "white" : "black" }} to="/shop"
+                                        className={`${scroll ? 'navLinksAfterScroll' : 'navLinks'}`}>
+                                        Shop
+                                    </Link>
                                 </li>
                                 <li className="col-3 mt-3">
-                                    <Link to="/contact" style={{ color: ((location.pathname === "/shop") || (location.pathname === "/cart") || (location.pathname === "/item_details")) && "black" }} className={`${scroll ? 'navLinksAfterScroll' : 'navLinks'}`}>Contact</Link>
+                                    <Link
+                                        to="/contact"
+                                        style={{ color: location.pathname === "/" || location.pathname == "/contact" || location.pathname === "/login" || location.pathname === "/signup" ? "white" : "black" }}
+                                        className={`${scroll ? 'navLinksAfterScroll' : 'navLinks'}`}>
+                                        Contact
+                                    </Link>
                                 </li>
                             </ul>
                         </div>
                         <div className="col-xl-2 col-3 login d-flex justify-content-evenly">
-                            <Link to="/cart"><i style={{ color: ((location.pathname === "/shop") || (location.pathname === "/cart") || (location.pathname === "/item_details")) && "black" }} className={`bi bi-cart3 cartIcon ${scroll ? 'cartIconAfterScroll' : ''}`} /></Link>
+                            <Link
+                                to="/cart">
+                                <i
+                                    style={{ color: location.pathname === "/" || location.pathname == "/contact" || location.pathname === "/login" || location.pathname === "/signup" ? "white" : "black" }}
+                                    className={`bi bi-cart3 cartIcon ${scroll ? 'cartIconAfterScroll' : ''}`}
+                                />
+                            </Link>
                             {displayLogoutBtn ?
                                 (<Link>
                                     <button className="loginBtn btn btn-secondary" onClick={handleLogout}>Logout</button>
@@ -137,6 +171,7 @@ const Navbar = () => {
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/item_details" element={<ItemDetails />} />
+                <Route path="*" element={<Error />} />
             </Routes>
             <ToastContainer />
         </>

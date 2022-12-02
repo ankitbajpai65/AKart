@@ -24,9 +24,9 @@ export default function ItemDetails() {
             setQuantity(quantity - 1);
     }
     const firstImageClicked = (e, val) => {
-        console.log(e);
-        console.log(e.target.getAttribute('src'));
-        console.log('image click');
+        // console.log(e);
+        // console.log(e.target.getAttribute('src'));
+        // console.log('image click');
         let temp = val;
         setImg(temp);
     }
@@ -70,7 +70,7 @@ export default function ItemDetails() {
                                     <h1 className="d-inline">₹ {location.state.val.price}/- </h1>
                                     <strike className="d-inline-block">₹650</strike>
                                 </span>
-                                <span className="d-block mt-3 rating">{location.state.val.category.id}
+                                <span className="d-block mt-4 mb-3 rating">{location.state.val.category.id}
                                     <StarIcon className="ms-1 mn-1 fs-4" /></span>
                             </div>
                             <div className="h-50">

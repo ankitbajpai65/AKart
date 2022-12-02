@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './css/Home.css';
-import { useNavigate } from 'react-router-dom';
 import men from '../images/men9.jpg';
 import women from '../images/woman9.jpg';
 import women2 from '../images/woman8.jpeg';
 import shoe from '../images/shoe3.png';
 import { Link } from 'react-router-dom';
-import Home_card from './Home_card';
 import Shop from './Shop.js';
 
 const dataSlider = [
@@ -51,35 +49,17 @@ const Home = () => {
         else if (slideIndex === 1)
             setSlideIndex(dataSlider.length);
     }
-    const enableHover = () => {
-        console.log('hover');
-        let btn = document.querySelector('.homeBtn');
-        for (let i in btn.length) {
-            i.style.color = 'white';
-            i.style.background = 'transparent';
-            i.style.border = '2px solid white';
-        }
-    }
-    const disableHover = () => {
-        console.log('hatao hover');
-        let btn = document.querySelector('.homeBtn');
-        for (let i in btn.length) {
-            i.style.color = '';
-            i.style.background = '';
-            i.style.border = '';
-        }
-    }
     let slideinterval;
-    // useEffect(() => {
-    //     setauto(true)
-    //     if (auto) {
-    //         slideinterval = setInterval(nextSlide, 3000);
-    //     }
-    //     return () => {
-    //         setauto(false);
-    //         clearInterval(slideinterval);
-    //     }
-    // })
+    useEffect(() => {
+        setauto(true)
+        if (auto) {
+            slideinterval = setInterval(nextSlide, 3000);
+        }
+        return () => {
+            setauto(false);
+            clearInterval(slideinterval);
+        }
+    })
     return (
         <>
             <div className="container-slider homeDiv">
@@ -91,7 +71,7 @@ const Home = () => {
                                 <h1 className="title">{obj.title}</h1>
                                 <h1 className="subtitle">{obj.subtitle}</h1>
                                 {/* <button className="btn homeBtn" id="shopNowBtn">Shop now</button> */}
-                                <Link to="/shop" className="homeBtn" onMouseEnter={enableHover} onMouseLeave={disableHover} style={{ zIndex: 1 }}>Shop now</Link>
+                                <Link to="/shop" className="homeBtn">Shop now</Link>
                             </div>
                         </div>
                     )
