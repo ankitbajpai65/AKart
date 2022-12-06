@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './css/Home.css';
-import men from '../images/men9.jpg';
-import women from '../images/woman9.jpg';
-import women2 from '../images/woman8.jpeg';
-import shoe from '../images/shoe3.png';
 import { Link } from 'react-router-dom';
 import Shop from './Shop.js';
 
@@ -11,26 +7,22 @@ const dataSlider = [
     {
         id: 1,
         title: 'Jackets & Coats',
-        subtitle: 'Quality Matters.',
-        image: men
+        subtitle: 'Quality Matters'
     },
     {
         id: 2,
         title: 'Find The Best Outfit',
-        subtitle: 'With 30% Off',
-        image: women
+        subtitle: 'With 30% Off'
     },
     {
         id: 3,
         title: 'The Best Shoes',
-        subtitle: 'Comfort For your long day',
-        image: shoe
+        subtitle: 'Comfort For your long day'
     },
     {
         id: 4,
         title: 'Next Season Is here',
-        subtitle: 'Enjoy your summer with us.',
-        image: women2
+        subtitle: 'Enjoy your summer with us'
     }
 ];
 const Home = () => {

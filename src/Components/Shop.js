@@ -76,7 +76,7 @@ const Shop = () => {
             <div>
                 <div id="shop_main_div">
                     <h1 className="shop_heading display-5 fw-bold">{heading}</h1>
-                    <nav className="container-fluid mb-5">
+                    <nav className="container mb-5">
                         <div className="col-md-6 shop_navbar_div">
                             <ul className="row">
                                 <li className="col-2">

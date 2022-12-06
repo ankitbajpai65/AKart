@@ -163,6 +163,14 @@
 /* MEDIA QUERY */
 
 @media only screen and (max-width: 600px) {
+    .shop_navbar_div {
+        width: 90vw;
+    }
+
+    #shop_main_div {
+        width: 97vw;
+    }
+
     #shop_main_div nav {
         margin-left: 0.5rem;
     }
