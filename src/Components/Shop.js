@@ -1,10 +1,10 @@
-import { PinDropSharp, ShortTextSharp } from '@material-ui/icons';
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import HashLoader from "react-spinners/HashLoader";
 import './css/Shop.css';
 import Item from './Item';
 
 const Shop = () => {
+    const [loading, setLoading] = useState(false);
     const [item, setItem] = useState([]);
     const [itemToDisplay, setItemToDisplay] = useState([]);
     const [heading, setHeading] = useState("All Products")
@@ -13,21 +13,30 @@ const Shop = () => {
         fetch('https://api.escuelajs.co/api/v1/products')
             .then(response => {
                 // console.log(response);
+                setLoading(true);
                 return response.json();
             }).then(res => {
                 data = res;
                 // console.log(data);
                 setItem(data);
                 setItemToDisplay(data);
+                setLoading(false);
                 // console.log(item);
                 // console.log(itemToDisplay);
 
             })
             .catch(error => {
                 console.log(error);
+                setLoading(false);
             })
     }, []);
-    let allData;
+    // useEffect(() => {
+    //     setLoading(true);
+    //     setTimeout(() => {
+    //         setLoading(false);
+    //     }, 2000);
+    // }, [item])
+
     const populateAllProducts = (val) => {
         // console.log('all click', val);
         let head = "All Products"
@@ -102,19 +111,27 @@ const Shop = () => {
                     </nav>
                     <div className="container-fluid">
                         <div className="row item_container">
-                            {item.map((val, index) => {
-                                {/* console.log(val.images[0]); */ }
-                                return <Item title={val.title} price={val.price} image={val.images[0]} val={val} starId={val.category.id} id={val.id} key={index} />
-                            })}
-                            {/* <Item /> */}
+                            {
+                                loading ?
+                                    <HashLoader
+                                        color={'#354BC1'}
+                                        loading={loading}
+                                        // cssOverride={override}
+                                        size={40}
+                                        aria-label="Loading Spinner"
+                                        data-testid="loader"
+                                    />
+                                    :
+                                    item.map((val, index) => {
+                                        {/* console.log(val.images[0]); */ }
+                                        return <Item title={val.title} price={val.price} image={val.images[0]} val={val} starId={val.category.id} id={val.id} key={index} />
+                                    })
+
+                            }
                         </div>
                     </div>
                 </div>
             </div>
-            {/* <Routes>
-                <Route path="/shop/all" element={<AllProducts />} />
-                <Route path="/shop/shoes" element={<Shoes />} />
-            </Routes> */}
         </>
     );
 }

@@ -160,6 +160,10 @@
     transform: scale(1.3);
 }
 
+.loader {
+    background-color: red;
+}
+
 /* MEDIA QUERY */
 
 @media only screen and (max-width: 600px) {
