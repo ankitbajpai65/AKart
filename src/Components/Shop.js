@@ -10,10 +10,10 @@ const Shop = () => {
     const [heading, setHeading] = useState("All Products")
     let data;
     useEffect(() => {
+        setLoading(true);
         fetch('https://api.escuelajs.co/api/v1/products')
             .then(response => {
                 // console.log(response);
-                setLoading(true);
                 return response.json();
             }).then(res => {
                 data = res;
