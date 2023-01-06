@@ -114,6 +114,7 @@ const Shop = () => {
                             {
                                 loading ?
                                     <HashLoader
+                                        className="mt-5"
                                         color={'#354BC1'}
                                         loading={loading}
                                         // cssOverride={override}

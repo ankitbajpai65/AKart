@@ -12,6 +12,7 @@
 #shop_main_div {
     /* border: 2px solid red; */
     margin: 12rem 0rem 3rem 0rem;
+    min-height: 35vh;
 }
 
 #shop_main_div nav {
