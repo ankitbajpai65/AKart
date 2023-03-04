@@ -1,11 +1,6 @@
 {
   "database": {
-    "rules": {
-      "rules": {
-        ".read": "true",
-        ".write": "true"
-      }
-    }
+    "rules": "database.rules.json"
   },
   "hosting": {
     "public": "build",
