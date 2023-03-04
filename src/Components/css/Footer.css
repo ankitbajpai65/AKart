@@ -100,13 +100,23 @@
     }
 }
 
+@media only screen and (min-width: 576px) and (max-width: 600px) {
+
+    .footer input,
+    .footer button {
+        width: 100%;
+    }
+}
+
 @media only screen and (min-width: 600px) and (max-width: 768px) {
     html {
         font-size: 55%;
     }
 
+    .categories,
+    .help,
     #contact_sec_in_footer {
-        margin-right: 2rem;
+        text-align: center;
     }
 }
 

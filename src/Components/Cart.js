@@ -18,7 +18,7 @@ const Cart = () => {
     }
     useEffect(() => {
         auth.onAuthStateChanged((user) => {
-            console.log(user);
+            // console.log(user);
             if (user) {
                 setIsLogin(true);
             }

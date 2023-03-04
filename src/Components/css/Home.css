@@ -14,24 +14,15 @@ html {
 } */
 .container-slider {
     height: 100vh;
-    /* margin: 100px auto 0; */
     position: relative;
     overflow: hidden;
-    /* z-index: 1; */
-    /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); */
 }
-
-/* .slide::before {
-    content: "";
-    background-color: #B98F77;
-} */
 
 .slide {
     /* border: 2px solid red; */
     position: absolute;
     top: 0;
     left: 0;
-    /* width: 100%; */
     width: 101vw;
     height: 100%;
     opacity: 0;
@@ -43,7 +34,6 @@ html {
 }
 
 .slide:nth-child(1) {
-    /* background: url('../../images/shirt2.png'), #B98F77; */
     background: url('../../images/slide-1.png'), #B98F77;
     background-position: right;
     background-repeat: no-repeat;
@@ -51,7 +41,6 @@ html {
 }
 
 .slide:nth-child(2) {
-    /* background: url('../../images/slide-2.png'), #B98F77; */
     background: url('../../images/slide-5.png'), #B98F77;
     background-position: 78rem 0rem;
     background-repeat: no-repeat;
@@ -66,7 +55,6 @@ html {
 }
 
 .slide:nth-child(4) {
-    /* background: url('../../images/woman8.jpeg'), #C6C5C1; */
     background: url('../../images/slide-4.png'), #B98F77;
     background-position: right;
     background-repeat: no-repeat;
@@ -102,21 +90,6 @@ html {
     background: transparent;
 }
 
-/* .slide:nth-child(4)::before {
-    z-index: 1;
-    background-color: orange;
-    content: '';
-    display: block;
-    height: 100%;
-    position: absolute;
-    width: 100%;
-} */
-
-/* .slide img {
-    width: 100%;
-    height: 100%;
-} */
-
 .active-anim {
     opacity: 1;
 }
@@ -133,12 +106,6 @@ html {
     align-items: center;
     cursor: pointer;
 }
-
-/* .btn-slide img {
-    width: 25px;
-    height: 25px;
-    pointer-events: none;
-} */
 
 .prev {
     top: 50%;
@@ -166,8 +133,8 @@ html {
 }
 
 .card_home {
-    color: white;
     /* border: 2px solid red; */
+    color: white;
     height: 27rem;
     width: 28%;
     margin: 2rem;

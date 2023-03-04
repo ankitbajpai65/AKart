@@ -11,7 +11,6 @@
     height: 85vh;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     justify-content: center;
     background-image: url(../../images/error.jpg);
     /* background-position: 80rem 3rem; */
@@ -37,7 +36,6 @@
     color: #46B5D2;
     padding: 0.8rem 0rem;
     border: 2px solid #46B5D2;
-    /* background-color: white; */
     border-radius: 0.5rem;
     font-size: 1.8rem;
     margin-top: 4rem;
@@ -56,7 +54,6 @@
 
     .errorDiv {
         background-image: none;
-        /* background-size: contain; */
     }
 }
 
@@ -71,7 +68,6 @@
 
     .errorDiv {
         background-position: right;
-        /* background-size: contain; */
     }
 }
 

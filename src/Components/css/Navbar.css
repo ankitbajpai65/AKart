@@ -27,6 +27,7 @@
 .mobileNav {
     margin-left: 0;
     margin-right: 0;
+    height: 35.5%;
 }
 
 .showMobNav {
@@ -34,13 +35,12 @@
     transition: 0.5s;
 }
 
-.navAnim,
-.mobileNav>ul {
-    animation-name: example;
+.navAnim {
+    animation-name: hamburgerSlide;
     animation-duration: .4s;
 }
 
-@keyframes example {
+@keyframes hamburgerSlide {
     from {
         height: 0;
     }
@@ -56,18 +56,15 @@
     margin-left: 1rem;
 }
 
-.changeHamburgerStyle {
-    color: black !important;
-}
-
 .logo {
     text-decoration: none;
     color: white;
     font-size: 2.2rem;
 }
 
-.logo:hover {
-    color: white;
+.logoAfterScroll,
+.changeHamburgerStyle {
+    color: black !important;
 }
 
 .navLinks {
@@ -89,21 +86,8 @@
     transition: 0.3s;
 }
 
-.navLinks:hover {
-    color: white;
-}
-
 .navLinks:hover:after {
     width: 100%;
-}
-
-.logoAfterScroll {
-    text-decoration: none;
-    color: black !important;
-}
-
-.logoAfterScroll:hover {
-    color: black;
 }
 
 .navLinksAfterScroll {
@@ -125,10 +109,6 @@
     transition: 0.3s;
 }
 
-.navLinksAfterScroll:hover {
-    color: black;
-}
-
 .navLinksAfterScroll:hover:after {
     width: 100%;
 }
@@ -138,11 +118,7 @@
     color: white;
 }
 
-.cartIconAfterScroll {
-    color: black !important;
-}
-
-.cartIconInMob {
+.cartIconAfterScrollOrHamburgerClick {
     color: black !important;
 }
 

@@ -12,7 +12,7 @@ const Footer = () => {
             justify-content-center">
                 <div className="footerDiv mb-3">
                     <div className="row">
-                        <div className="categories col-sm-3 offset-sm-1">
+                        <div className="categories col-sm-3 offset-md-1">
                             <h3 className="heading">CATEGORIES</h3>
                             <ul>
                                 <li>

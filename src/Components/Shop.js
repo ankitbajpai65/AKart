@@ -45,7 +45,7 @@ const Shop = () => {
     }
     const populateWomen = (val) => {
         const filterWomen = val.filter((i) => {
-            return i.category.name === 'Clothes';
+            return i.category.name === 'ropa';
         })
         // console.log(filterShoes);
         setItem(filterWomen);

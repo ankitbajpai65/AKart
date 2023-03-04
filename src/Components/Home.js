@@ -62,16 +62,15 @@ const Home = () => {
                             <div className="col-6 offset-1">
                                 <h1 className="title">{obj.title}</h1>
                                 <h1 className="subtitle">{obj.subtitle}</h1>
-                                {/* <button className="btn homeBtn" id="shopNowBtn">Shop now</button> */}
                                 <Link to="/shop" className="homeBtn">Shop now</Link>
                             </div>
                         </div>
                     )
                 })}
-                <button onClick={nextSlide} className="btn-slide prev">
+                <button onClick={prevSlide} className="btn-slide prev">
                     <i class="bi bi-chevron-left"></i>
                 </button>
-                <button onClick={prevSlide} className="btn-slide next">
+                <button onClick={nextSlide} className="btn-slide next">
                     <i class="bi bi-chevron-right"></i>
                 </button>
             </div>

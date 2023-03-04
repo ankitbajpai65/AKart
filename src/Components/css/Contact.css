@@ -14,7 +14,6 @@
     /* border: 2px solid red; */
     color: white;
     height: 41rem;
-    /* background-image: linear-gradient(135deg, hsla(301, 98%, 58%, 0.65), hsla(198, 100%, 65%, 0.65)), */
     background-image:
         url('../../images/contact1.jpg');
     background-position: center;
@@ -38,17 +37,7 @@
     padding-right: 0rem;
 }
 
-/* #name {
-    position: relative;
-}
-
-.nameErrorMsg {
-    position: absolute;
-    top: 2rem;
-    left: 0;
-} */
 .errorMsg {
-    /* color: #ad0303; */
     color: white;
     margin-top: 1rem;
     font-size: 1.5rem;
@@ -59,15 +48,14 @@
     width: 100%;
     font-size: 1.7rem;
     padding: 1.2rem 2rem;
-    /* margin: 1rem 2rem 2rem 2rem; */
     margin-bottom: 3rem;
     border-radius: 1rem;
     border: none;
     outline: none;
 }
 
-.ankit {
-    border: 2px solid red;
+.notifyError {
+    border: 2px solid red !important;
 }
 
 .form button {
@@ -77,7 +65,6 @@
     margin-top: 5rem;
     border-radius: 4rem;
     transition: 0.5s;
-    /* background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%); */
 }
 
 .form button:hover {
@@ -86,6 +73,7 @@
 }
 
 /* MEDIA QUERY */
+
 @media only screen and (max-width: 600px) {
 
     html {
@@ -93,7 +81,6 @@
     }
 
     .form {
-        /* width: 45%; */
         width: 20em;
     }
 
@@ -109,10 +96,6 @@
 }
 
 @media only screen and (min-width: 600px) and (max-width: 768px) {
-
-    /* html {
-        font-size: 55%;
-    } */
     .form {
         width: 40%;
     }

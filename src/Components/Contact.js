@@ -1,4 +1,3 @@
-import { SettingsSystemDaydreamTwoTone } from '@material-ui/icons';
 import React, { useState, useEffect } from 'react';
 import './css/Contact.css';
 import { ToastContainer, toast } from 'react-toastify';
@@ -14,6 +13,7 @@ const Contact = () => {
         email: "",
         message: ""
     });
+    // trying to autofill name and email if user is in login state.
     // useEffect(() => {
     //     auth.onAuthStateChanged((user) => {
     //         console.log(user);
@@ -24,8 +24,7 @@ const Contact = () => {
     //     })
     // })
     const inputEvent = (event) => {
-        // console.log(event.target.value);
-        // console.log(event.target.name);
+        console.log(event.target.name, event.target.value);
         const value = event.target.value;
         const name = event.target.name;
         // setDetail((prev) => {
@@ -41,9 +40,10 @@ const Contact = () => {
         if (!reg1.test(detail.fullname)) {
             setName(true);
             return false;
-        } else {
+        }
+        else {
             if (detail.fullname.length <= 2) {
-                setName(true)
+                setName(true);
                 return false;
             }
         }
@@ -66,14 +66,6 @@ const Contact = () => {
     }
     const postData = async (event) => {
         event.preventDefault();
-
-        // if (name || email || msg) {
-        //     toast.error("Please fill correct details!", {
-        //         position: "top-center",
-        //         theme: "dark"
-        //     });
-        //     return false;
-        // }
         const { fullname, email, message } = detail;
         if (fullname && email && message) {
             const res = await fetch('https://e-commerce-website-a04e4-default-rtdb.firebaseio.com/contactForm.json',
@@ -98,9 +90,6 @@ const Contact = () => {
                 });
             }
             setTimeout(removeVal, 500);
-            // setName(false);
-            // setEmail(false);
-            // setMsg(false);
             setDetail(null);
         }
         else {
@@ -120,7 +109,7 @@ const Contact = () => {
                 <div id="formDiv" className="d-flex flex-column justify-content-center align-items-center">
                     <form action="" className="form container" method="POST">
                         {name && <span className="errorMsg row mb-3">*Must hold alphabets only and length should be greater than 2</span>}
-                        <input type="text" id="name" className={`${name ? 'ankit details input row' : 'row details input'}`} onChange={inputEvent} onBlur={validateName} name="fullname" placeholder="Enter name" />
+                        <input type="text" id="name" className={`${name ? 'notifyError details input row' : 'details input row'}`} onChange={inputEvent} onBlur={validateName} name="fullname" placeholder="Enter name" />
 
                         {email && <span className="errorMsg row mb-3">*Please enter valid email!</span>}
                         <input type="" id="email" className="details input row" onChange={inputEvent} onBlur={validateMail} name="email" placeholder="Enter email" />

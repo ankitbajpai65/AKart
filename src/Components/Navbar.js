@@ -20,20 +20,18 @@ const Navbar = () => {
     const [scroll, setScroll] = useState(false);
     const [displayLogoutBtn, setDisplayLogoutBtn] = useState(false);
     const location = useLocation();
+
     const scrolling = () => {
-        if (window.scrollY >= 2) {
-            setScroll(true);
-        }
-        else {
-            setScroll(false);
-        }
+        (window.scrollY >= 2) ? setScroll(true) : setScroll(false);
     }
     window.addEventListener('scroll', scrolling);
     useEffect(() => {
         auth.onAuthStateChanged((user) => {
             // console.log(user);
-            if (user) setDisplayLogoutBtn(true);
-            else setDisplayLogoutBtn(false)
+            if (user)
+                setDisplayLogoutBtn(true);
+            else
+                setDisplayLogoutBtn(false);
         })
     })
     const handleLogout = () => {
@@ -51,12 +49,12 @@ const Navbar = () => {
         setHamburgerClick(!hamburgerClick)
     }
     const disableHamburger = () => {
-        setHamburgerClick(!hamburgerClick)
+        setHamburgerClick(!hamburgerClick);
     }
     useEffect(() => {
         if (window.innerWidth <= 641)
             setMobileView(true);
-    }, [mobileView])
+    }, [mobileView]);
     return (
         <>
             <div className={`container-fluid main_nav_div p-3 ps-3 pe-3 text-white ${scroll ? 'active' : ''} ${hamburgerClick ? 'showMobNav navAnim' : ''}`}>
@@ -67,7 +65,7 @@ const Navbar = () => {
                                 <Link>
                                     <MenuIcon
                                         onClick={handleHamburgerClick}
-                                        className={`hamburger ${hamburgerClick ? 'changeHamburgerStyle' : ''} ${scroll ? 'changeHamburgerStyle' : ''}`}
+                                        className={`hamburger ${(hamburgerClick || scroll) ? 'changeHamburgerStyle' : ''}`}
                                         style={{ color: location.pathname === "/" || location.pathname == "/contact" || location.pathname === "/login" || location.pathname === "/signup" ? "white" : "black" }}
                                     />
                                 </Link>
@@ -75,7 +73,7 @@ const Navbar = () => {
                             <div className="col-5 login d-flex justify-content-evenly">
                                 <Link to="/cart">
                                     <i
-                                        className={`bi bi-cart3 cartIcon ${scroll ? 'cartIconAfterScroll' : ''} ${hamburgerClick ? 'cartIconInMob' : ''}`}
+                                        className={`bi bi-cart3 cartIcon ${(scroll || hamburgerClick) ? 'cartIconAfterScrollOrHamburgerClick' : ''}`}
                                         style={{ color: location.pathname === "/" || location.pathname == "/contact" || location.pathname === "/login" || location.pathname === "/signup" ? "white" : "black" }}
                                     />
                                 </Link>
@@ -90,7 +88,7 @@ const Navbar = () => {
                                 }
                             </div>
                             {hamburgerClick &&
-                                <div className="linkDiv mobileNav" style={{ height: "35.5%" }}>
+                                <div className="linkDiv mobileNav">
                                     <ul className="row h-100">
                                         <li className="col-2 offset-5 mt-5">
                                             <Link to="/" className='navLinks text-dark' onClick={disableHamburger}>Home</Link>
@@ -147,7 +145,7 @@ const Navbar = () => {
                                 to="/cart">
                                 <i
                                     style={{ color: location.pathname === "/" || location.pathname == "/contact" || location.pathname === "/login" || location.pathname === "/signup" ? "white" : "black" }}
-                                    className={`bi bi-cart3 cartIcon ${scroll ? 'cartIconAfterScroll' : ''}`}
+                                    className={`bi bi-cart3 cartIcon ${scroll ? 'cartIconAfterScrollOrHamburgerClick' : ''}`}
                                 />
                             </Link>
                             {displayLogoutBtn ?
