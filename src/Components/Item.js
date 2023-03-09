@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Routes, Route, Link, useNavigate } from "react-router-dom";
+import React from 'react';
+import { useNavigate } from "react-router-dom";
 import { useCart } from 'react-use-cart';
 import './css/Shop.css';
 import GradeIcon from '@material-ui/icons/Grade';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import ItemDetails from './ItemDetails';
-import shirt from '../images/shirt.jpg';
 import { ToastContainer, toast } from 'react-toastify';
 
 const Item = (props) => {
@@ -16,7 +14,6 @@ const Item = (props) => {
         navigate('/item_details', { state: props });
     }
     const addToCart = (ind, title) => {
-        // alert(`${title} is added to cart`);
         toast.success(`${title} is added to cart`, {
             position: "top-right",
             theme: "dark"
@@ -42,7 +39,7 @@ const Item = (props) => {
                         <span className='product__rating'>
                             {Array(props.starId)
                                 .fill()
-                                .map((_, i) => <GradeIcon className="starIcon mt-3" key={i} />)
+                                .map((val, i) => <GradeIcon className="starIcon mt-3" key={i} />)
                             }
                         </span>
                     </div>

@@ -1,24 +1,13 @@
 import React, { useState } from 'react';
 import './css/Cart.css';
 import { useCart } from 'react-use-cart';
-import shirt from '../images/shirt.jpg';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 import ClearIcon from '@material-ui/icons/Clear';
 
 const CartItem = (props) => {
-    // console.warn(items);
-    const { isEmpty, totalUniqueItems, items, totalItems, cartTotal, updateItemQuantity, removeItem,
-        emptyCart } = useCart();
-    // const [quantity, setQuantity] = useState(1);
-    // const increment = () => {
-    //     setQuantity(quantity + 1);
-    // }
-    // const decrement = () => {
-    //     if (quantity > 1)
-    //         setQuantity(quantity - 1);
-    // }
     // console.log(props);
+    const { updateItemQuantity, removeItem } = useCart();
     return (
         <>
             <div className="col-3 cart_page_img cartInfo d-flex align-items-center">
@@ -37,7 +26,7 @@ const CartItem = (props) => {
                 <span className="fw-bold mt-2 ms-4">₹{props.price * props.quantity}/-</span>
             </div>
             <div className="col-1 cartInfo">
-                <ClearIcon className="deleteIcon m-3" onClick={() => { removeItem(props.id) }} />
+                <ClearIcon className="deleteIcon m-3" onClick={() => removeItem(props.id)} />
             </div>
         </>
     );

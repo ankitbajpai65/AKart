@@ -24,7 +24,7 @@ const Contact = () => {
     //     })
     // })
     const inputEvent = (event) => {
-        console.log(event.target.name, event.target.value);
+        // console.log(event.target.name, event.target.value);
         const value = event.target.value;
         const name = event.target.name;
         // setDetail((prev) => {

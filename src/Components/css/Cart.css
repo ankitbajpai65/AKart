@@ -28,6 +28,7 @@
     height: 100%;
     padding: 2rem 0rem;
     border-bottom: 1px solid rgb(210, 206, 206);
+    cursor: pointer;
 }
 
 .emptyCart {

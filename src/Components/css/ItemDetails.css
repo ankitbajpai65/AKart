@@ -14,10 +14,6 @@
 .imageSec {
     /* border: 2px solid rgb(209, 42, 42); */
     height: 90%;
-    /* display: flex;
-    flex-direction: column;
-    align-items: center; */
-    /* justify-content: center; */
 }
 
 .imageDiv {
@@ -38,7 +34,6 @@
     margin-left: auto;
     margin-right: auto;
     cursor: pointer;
-    /* box-shadow: 1px 1px 8px rgb(204 203 203), 0px 0px 8px rgb(204 203 203); */
 }
 
 .mainImgDiv {
@@ -52,7 +47,6 @@
 .mainImgDiv img {
     /* border: 2px solid black; */
     height: 35.3rem;
-    /* height: 100%; */
     width: 100%;
     display: block;
     margin-left: auto;

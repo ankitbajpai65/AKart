@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation, useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useCart } from 'react-use-cart';
 import './css/Cart.css';
 import { auth } from './firebase';
@@ -9,12 +9,14 @@ import cart from '../images/cart2.jpeg';
 
 const Cart = () => {
     const [isLogin, setIsLogin] = useState(false)
-    let location = useLocation();
-    const { isEmpty, totalUniqueItems, items, totalItems, cartTotal, updateItemQuantity, removeItem,
-        emptyCart } = useCart();
+    const { isEmpty, totalUniqueItems, items, cartTotal } = useCart();
+    // console.log(items);
     let navigate = useNavigate();
     const shopBtnClicked = () => {
         navigate('/shop');
+    }
+    const gotoItemDetails = (val) => {
+        navigate('/item_details', { state: { val } });
     }
     useEffect(() => {
         auth.onAuthStateChanged((user) => {
@@ -39,9 +41,13 @@ const Cart = () => {
                                 </div>) :
                                 items.map((item, index) => {
                                     return (
-                                        <div className="row singleItem">
-                                            <CartItem id={item.id} image={item.images[0]} title={item.title} price={item.price} quantity={item.quantity} key={index} />
-                                        </div>
+                                        <>
+                                            {/* {console.log(item)} */}
+                                            <div className="row singleItem" onClick={() => gotoItemDetails(item)}>
+                                                <CartItem id={item.id} image={item.images[0]} title={item.title} price={item.price} quantity={item.quantity} key={index} />
+                                            </div>
+
+                                        </>
                                     )
                                 })
                         }
@@ -50,7 +56,6 @@ const Cart = () => {
                         <div className="row priceSec" id="head">
                             <span className="type col-6">PRICE DETAILS</span>
                         </div>
-                        {/* <hr /> */}
                         <div className="row priceSec">
                             <span className="type col-6">Price({totalUniqueItems} items)</span>
                             <span className="cost col-2 offset-3">₹{cartTotal}/-</span>

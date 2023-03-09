@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useCart } from 'react-use-cart';
 import './css/ItemDetails.css';
-import shirt from '../images/shirt.jpg';
 import LabelImportantIcon from '@material-ui/icons/LabelImportant';
 import StarIcon from '@material-ui/icons/Star';
 import AddIcon from '@material-ui/icons/Add';
@@ -12,7 +11,7 @@ import { ToastContainer, toast } from 'react-toastify';
 export default function ItemDetails() {
     const location = useLocation();
     const { addItem } = useCart();
-    // console.log(location.state.val);
+    // console.log(location.state);
     const [quantity, setQuantity] = useState(1);
     const [img, setImg] = useState(location.state.val.images[0])
     // console.log('cart', cart);
@@ -26,9 +25,7 @@ export default function ItemDetails() {
     const firstImageClicked = (e, val) => {
         // console.log(e);
         // console.log(e.target.getAttribute('src'));
-        // console.log('image click');
-        let temp = val;
-        setImg(temp);
+        setImg(val);
     }
     const secImageClicked = (val) => {
         setImg(val);
@@ -44,7 +41,7 @@ export default function ItemDetails() {
                         <div className="col-md-5 col-10 offset-md-0 offset-1 imageSec">
                             <div className="row imageDiv">
                                 <div className="col-4 sideImgDiv">
-                                    <img src={location.state.val.category.image} alt="" className="sideImg" onClick={(e) => firstImageClicked(e, location.state.val.category.image)} />
+                                    <img src={location.state.val.category.image} alt="" className="sideImg" onClick={(e) => firstImageClicked(location.state.val.category.image)} />
                                     <img src={location.state.val.images[1]} alt="" className="sideImg" onClick={() => secImageClicked(location.state.val.images[1])} />
                                     <img src={location.state.val.images[2]} alt="" className="sideImg" onClick={() => thirdImageClicked(location.state.val.images[2])} />
                                 </div>
@@ -102,7 +99,6 @@ export default function ItemDetails() {
                                             <span className="figure">{quantity}</span>
                                             <AddIcon onClick={increment} className="addIcon ms-3 fs-3" />
                                         </span>
-
                                     </span>
                                 </div>
                             </div>
