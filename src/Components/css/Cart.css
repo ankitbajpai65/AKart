@@ -28,7 +28,6 @@
     height: 100%;
     padding: 2rem 0rem;
     border-bottom: 1px solid rgb(210, 206, 206);
-    cursor: pointer;
 }
 
 .emptyCart {
@@ -71,6 +70,11 @@
     width: 53%;
     display: block;
     margin: auto;
+}
+
+.cartImg,
+.cartTitle {
+    cursor: pointer;
 }
 
 .removeIcon,

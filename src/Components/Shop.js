@@ -46,13 +46,13 @@ const Shop = () => {
         const filterShoes = val.filter((i) => {
             return i.category.name === 'Shoes';
         })
-        console.log(filterShoes);
+        // console.log(filterShoes);
         setItemToDisplay(filterShoes);
         setHeading("Shoe Products");
     }
     const populateWatches = (val) => {
         const filterWatches = val.filter((i) => {
-            return i.category.name === 'Electronic';
+            return i.category.name === 'Electronics';
         })
         // console.log(filterWatches);
         setItemToDisplay(filterWatches);

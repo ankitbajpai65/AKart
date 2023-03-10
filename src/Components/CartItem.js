@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './css/Cart.css';
+import { useNavigate, Link } from 'react-router-dom';
 import { useCart } from 'react-use-cart';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
@@ -7,14 +8,19 @@ import ClearIcon from '@material-ui/icons/Clear';
 
 const CartItem = (props) => {
     // console.log(props);
+    let navigate = useNavigate();
     const { updateItemQuantity, removeItem } = useCart();
+    const gotoItemDetails = (val) => {
+        navigate('/item_details', { state: { val } });
+    }
+    // console.log(props);
     return (
         <>
             <div className="col-3 cart_page_img cartInfo d-flex align-items-center">
-                <img src={props.image} alt="" />
+                <img src={props.image} alt="" className="cartImg" onClick={() => gotoItemDetails(props.item)} />
             </div>
             <div className="col-lg-5 col-4 cartInfo p-sm-5">
-                <span className="d-block fs-3 mb-3">{props.title}</span>
+                <span className="d-block fs-3 mb-3 cartTitle" onClick={() => gotoItemDetails(props.item)}>{props.title}</span>
                 <span className="fw-bold">₹{props.price}/-</span>
             </div>
             <div className="col-lg-3 col-4 cartInfo p-sm-4">

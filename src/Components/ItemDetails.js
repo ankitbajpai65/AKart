@@ -7,14 +7,13 @@ import StarIcon from '@material-ui/icons/Star';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 import { ToastContainer, toast } from 'react-toastify';
-
+// 
 export default function ItemDetails() {
     const location = useLocation();
     const { addItem } = useCart();
     // console.log(location.state);
     const [quantity, setQuantity] = useState(1);
     const [img, setImg] = useState(location.state.val.images[0])
-    // console.log('cart', cart);
     const increment = () => {
         setQuantity(quantity + 1);
     }

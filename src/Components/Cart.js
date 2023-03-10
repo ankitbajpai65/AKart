@@ -15,9 +15,9 @@ const Cart = () => {
     const shopBtnClicked = () => {
         navigate('/shop');
     }
-    const gotoItemDetails = (val) => {
-        navigate('/item_details', { state: { val } });
-    }
+    // const gotoItemDetails = (val) => {
+    //     navigate('/item_details', { state: { val } });
+    // }
     useEffect(() => {
         auth.onAuthStateChanged((user) => {
             // console.log(user);
@@ -43,8 +43,8 @@ const Cart = () => {
                                     return (
                                         <>
                                             {/* {console.log(item)} */}
-                                            <div className="row singleItem" onClick={() => gotoItemDetails(item)}>
-                                                <CartItem id={item.id} image={item.images[0]} title={item.title} price={item.price} quantity={item.quantity} key={index} />
+                                            <div className="row singleItem">
+                                                <CartItem id={item.id} image={item.images[0]} title={item.title} price={item.price} quantity={item.quantity} key={index} item={item} />
                                             </div>
 
                                         </>

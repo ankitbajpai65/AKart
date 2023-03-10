@@ -78,7 +78,9 @@ const Navbar = () => {
                                         style={{ color: location.pathname === "/" || location.pathname == "/contact" || location.pathname === "/login" || location.pathname === "/signup" ? "white" : "black" }}
                                     />
                                 </Link>
-                                <span className="items_in_cart bg-red text-white">{totalUniqueItems}</span>
+                                {totalUniqueItems > 0 &&
+                                    <span className="items_in_cart bg-red text-white">{totalUniqueItems}</span>
+                                }
                                 {displayLogoutBtn ?
                                     (<Link>
                                         <button className="loginBtn btn btn-secondary" onClick={handleLogout}>Logout</button>
@@ -149,7 +151,9 @@ const Navbar = () => {
                                     style={{ color: location.pathname === "/" || location.pathname == "/contact" || location.pathname === "/login" || location.pathname === "/signup" ? "white" : "black" }}
                                     className={`bi bi-cart3 cartIcon ${scroll ? 'cartIconAfterScrollOrHamburgerClick' : ''}`}
                                 />
-                                <span className="items_in_cart bg-red text-white">{totalUniqueItems}</span>
+                                {totalUniqueItems > 0 &&
+                                    <span className="items_in_cart bg-red text-white">{totalUniqueItems}</span>
+                                }
                             </Link>
                             {displayLogoutBtn ?
                                 (<Link>
