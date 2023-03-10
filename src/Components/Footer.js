@@ -16,16 +16,16 @@ const Footer = () => {
                             <h3 className="heading">CATEGORIES</h3>
                             <ul>
                                 <li>
-                                    <Link to="/" className="footer_links">Men</Link>
+                                    <Link to="/shop" className="footer_links">Men</Link>
                                 </li>
                                 <li>
-                                    <Link to="/" className="footer_links">Women</Link>
+                                    <Link to="/shop" className="footer_links">Women</Link>
                                 </li>
                                 <li>
-                                    <Link to="/" className="footer_links">Shoes</Link>
+                                    <Link to="/shop" className="footer_links">Shoes</Link>
                                 </li>
                                 <li>
-                                    <Link to="/" className="footer_links">Watches</Link>
+                                    <Link to="/shop" className="footer_links">Watches</Link>
                                 </li>
                             </ul>
                         </div>

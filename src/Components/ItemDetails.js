@@ -41,7 +41,7 @@ export default function ItemDetails() {
                         <div className="col-md-5 col-10 offset-md-0 offset-1 imageSec">
                             <div className="row imageDiv">
                                 <div className="col-4 sideImgDiv">
-                                    <img src={location.state.val.category.image} alt="" className="sideImg" onClick={(e) => firstImageClicked(location.state.val.category.image)} />
+                                    <img src={location.state.val.category.image} alt="" className="sideImg" onClick={(e) => firstImageClicked(e, location.state.val.category.image)} />
                                     <img src={location.state.val.images[1]} alt="" className="sideImg" onClick={() => secImageClicked(location.state.val.images[1])} />
                                     <img src={location.state.val.images[2]} alt="" className="sideImg" onClick={() => thirdImageClicked(location.state.val.images[2])} />
                                 </div>
@@ -65,7 +65,8 @@ export default function ItemDetails() {
                                 <p className="fw-semibold">{location.state.val.title}</p>
                                 <span>
                                     <h1 className="d-inline">₹ {location.state.val.price}/- </h1>
-                                    <strike className="d-inline-block">₹650</strike>
+                                    <strike className="d-inline-block">₹{Math.round(location.state.val.price * (1 + 20 / 100))}</strike>
+                                    <span className="discount d-inline-block fw-semibold ms-4">20% off</span>
                                 </span>
                                 <span className="d-block mt-4 mb-3 rating">{location.state.val.category.id}
                                     <StarIcon className="ms-1 mn-1 fs-4" /></span>

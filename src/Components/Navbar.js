@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, Link, useLocation } from "react-router-dom";
+import { useCart } from 'react-use-cart';
 import Home from './Home';
 import Shop from './Shop';
 import Contact from './Contact';
@@ -20,7 +21,7 @@ const Navbar = () => {
     const [scroll, setScroll] = useState(false);
     const [displayLogoutBtn, setDisplayLogoutBtn] = useState(false);
     const location = useLocation();
-
+    const { totalUniqueItems } = useCart();
     const scrolling = () => {
         (window.scrollY >= 2) ? setScroll(true) : setScroll(false);
     }
@@ -70,13 +71,14 @@ const Navbar = () => {
                                     />
                                 </Link>
                             </div>
-                            <div className="col-5 login d-flex justify-content-evenly">
+                            <div className="items_in_cart_div col-5 login d-flex justify-content-evenly">
                                 <Link to="/cart">
                                     <i
                                         className={`bi bi-cart3 cartIcon ${(scroll || hamburgerClick) ? 'cartIconAfterScrollOrHamburgerClick' : ''}`}
                                         style={{ color: location.pathname === "/" || location.pathname == "/contact" || location.pathname === "/login" || location.pathname === "/signup" ? "white" : "black" }}
                                     />
                                 </Link>
+                                <span className="items_in_cart bg-red text-white">{totalUniqueItems}</span>
                                 {displayLogoutBtn ?
                                     (<Link>
                                         <button className="loginBtn btn btn-secondary" onClick={handleLogout}>Logout</button>
@@ -140,13 +142,14 @@ const Navbar = () => {
                                 </li>
                             </ul>
                         </div>
-                        <div className="col-xl-2 col-3 login d-flex justify-content-evenly">
+                        <div className="col-xl-2 col-3 login d-flex justify-content-evenly items_in_cart_div">
                             <Link
                                 to="/cart">
                                 <i
                                     style={{ color: location.pathname === "/" || location.pathname == "/contact" || location.pathname === "/login" || location.pathname === "/signup" ? "white" : "black" }}
                                     className={`bi bi-cart3 cartIcon ${scroll ? 'cartIconAfterScrollOrHamburgerClick' : ''}`}
                                 />
+                                <span className="items_in_cart bg-red text-white">{totalUniqueItems}</span>
                             </Link>
                             {displayLogoutBtn ?
                                 (<Link>
