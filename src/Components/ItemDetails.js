@@ -7,7 +7,18 @@ import StarIcon from '@material-ui/icons/Star';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 import { ToastContainer, toast } from 'react-toastify';
-// 
+
+
+const size = [
+    {
+        sizeofProduct: 'large'
+    },
+    {
+        sizeofProduct: 'small'
+    }
+
+]
+
 export default function ItemDetails() {
     const location = useLocation();
     const { addItem } = useCart();
@@ -77,9 +88,11 @@ export default function ItemDetails() {
                                     <span className="info">
                                         <LabelImportantIcon className="labelIcon me-3" />
                                         <span className="fs-3 fw-semibold">Size</span>
+
                                         <select name="size" id="size" className="d-block mb-3">
-                                            <option value="Select size">Select size</option>
+                                            <option>Select size</option>
                                         </select>
+
                                     </span>
                                     <span className="info">
                                         <LabelImportantIcon className="labelIcon me-3" />
