@@ -18,12 +18,13 @@ const Shop = () => {
     useEffect(() => {
         setLoading(true);
         fetch('https://api.escuelajs.co/api/v1/products')
+            // fetch('https://fakestoreapi.com/products')
             .then(response => {
                 // console.log(response);
                 return response.json();
             }).then(res => {
                 data = res;
-                // console.log(data);
+                console.log(data);
                 setItemToDisplay(data);
                 setAllItems(data);
                 setLoading(false);
