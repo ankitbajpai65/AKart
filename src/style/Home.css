@@ -34,28 +34,28 @@ html {
 }
 
 .slide:nth-child(1) {
-    background: url('../../images/slide-1.png'), #B98F77;
+    background: url('../images/slide-1.png'), #B98F77;
     background-position: right;
     background-repeat: no-repeat;
     background-size: 65% 100%;
 }
 
 .slide:nth-child(2) {
-    background: url('../../images/slide-5.png'), #B98F77;
+    background: url('../images/slide-5.png'), #B98F77;
     background-position: 78rem 0rem;
     background-repeat: no-repeat;
     background-size: 70% 100%;
 }
 
 .slide:nth-child(3) {
-    background: url('../../images/shoe5.png'), #B98F77;
+    background: url('../images/shoe5.png'), #B98F77;
     background-position: 43rem -7rem;
     background-repeat: no-repeat;
     background-size: 69% 115%;
 }
 
 .slide:nth-child(4) {
-    background: url('../../images/slide-4.png'), #B98F77;
+    background: url('../images/slide-4.png'), #B98F77;
     background-position: right;
     background-repeat: no-repeat;
     background-size: 65% 100%;
@@ -159,21 +159,21 @@ html {
 }
 
 .men {
-    background-image: url('../../images/men8.jpg');
+    background-image: url('../images/men8.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .women {
-    background-image: url('../../images/woman7.jpeg');
+    background-image: url('../images/woman7.jpeg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .accessories {
-    background-image: url('../../images/shoe.jpg');
+    background-image: url('../images/shoe.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

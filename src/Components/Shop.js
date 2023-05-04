@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import HashLoader from "react-spinners/HashLoader";
-import './css/Shop.css';
+import '../style/Shop.css';
 import SearchIcon from '@material-ui/icons/Search';
 import Item from './Item';
 
@@ -24,7 +24,7 @@ const Shop = () => {
                 return response.json();
             }).then(res => {
                 data = res;
-                console.log(data);
+                // console.log(data);
                 setItemToDisplay(data);
                 setAllItems(data);
                 setLoading(false);

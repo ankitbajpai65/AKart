@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useCart } from 'react-use-cart';
-import './css/ItemDetails.css';
+import '../style/ItemDetails.css';
 import LabelImportantIcon from '@material-ui/icons/LabelImportant';
 import StarIcon from '@material-ui/icons/Star';
 import AddIcon from '@material-ui/icons/Add';

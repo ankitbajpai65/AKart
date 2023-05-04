@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './css/Home.css';
+import '../style/Home.css';
 import { Link } from 'react-router-dom';
 import Shop from './Shop.js';
 
@@ -68,10 +68,10 @@ const Home = () => {
                     )
                 })}
                 <button onClick={prevSlide} className="btn-slide prev">
-                    <i class="bi bi-chevron-left"></i>
+                    <i className="bi bi-chevron-left"></i>
                 </button>
                 <button onClick={nextSlide} className="btn-slide next">
-                    <i class="bi bi-chevron-right"></i>
+                    <i className="bi bi-chevron-right"></i>
                 </button>
             </div>
             <div className="container-fluid sections">

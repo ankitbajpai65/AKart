@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './css/Cart.css';
+import '../style/Cart.css';
 import { useNavigate, Link } from 'react-router-dom';
 import { useCart } from 'react-use-cart';
 import AddIcon from '@material-ui/icons/Add';

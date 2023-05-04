@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useCart } from 'react-use-cart';
-import './css/Cart.css';
+import '../style/Cart.css';
 import { auth } from './firebase';
 import shirt from '../images/shirt.jpg';
 import CartItem from './CartItem.js';

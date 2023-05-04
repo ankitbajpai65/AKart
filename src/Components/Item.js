@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 import { useCart } from 'react-use-cart';
-import './css/Shop.css';
+import '../style/Shop.css';
 import GradeIcon from '@material-ui/icons/Grade';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { ToastContainer, toast } from 'react-toastify';

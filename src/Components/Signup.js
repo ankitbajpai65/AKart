@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './css/Login.css';
+import '../style/Login.css';
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from './firebase';
 import VisibilityIcon from '@material-ui/icons/Visibility';

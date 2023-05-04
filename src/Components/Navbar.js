@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../style/Navbar.css';
 import { Routes, Route, Link, useLocation } from "react-router-dom";
 import { useCart } from 'react-use-cart';
 import Home from './Home';
@@ -9,7 +10,6 @@ import ItemDetails from './ItemDetails';
 import Login from './Login';
 import Signup from './Signup';
 import Error from './Error';
-import './css/Navbar.css';
 import { signOut } from "firebase/auth";
 import { auth } from './firebase';
 import { ToastContainer, toast } from 'react-toastify';
