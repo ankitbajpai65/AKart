@@ -36,7 +36,7 @@ const Navbar = () => {
         })
     })
     const handleLogout = () => {
-        console.log('logout');
+        // console.log('logout');
         signOut(auth).then(() => {
             toast.success("Your have been successfully logged out!", {
                 position: "top-center",
@@ -115,7 +115,7 @@ const Navbar = () => {
                                 to="/"
                                 style={{ color: location.pathname === "/" || location.pathname == "/contact" || location.pathname === "/login" || location.pathname === "/signup" ? "white" : "black" }}
                                 className={`logo ${scroll ? 'logoAfterScroll' : ''}`}>
-                                aKart
+                                AKart
                             </Link>
                         </div>
                         <div className="col-6 linkDiv">

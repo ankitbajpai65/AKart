@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from './firebase';
+import { auth, provider } from './firebase';
+import { signInWithPopup, signInWithEmailAndPassword } from 'firebase/auth'
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 import { ToastContainer, toast } from 'react-toastify';
@@ -26,6 +26,13 @@ export default function Login() {
         const value = e.target.value;
         setUser({ ...user, [name]: value });
     }
+    const handleGoogleSignin = () => {
+        signInWithPopup(auth, provider).then((res) => {
+            navigate('/');
+        }).catch((error) => {
+            console.log(error);
+        })
+    }
     const handleSubmission = () => {
         if (!user.email || !user.pass) {
             // alert("Please fill all entries!");
@@ -40,7 +47,7 @@ export default function Login() {
         signInWithEmailAndPassword(auth, user.email, user.pass).then(
             async (res) => {
                 setSubmitBtnDisable(false);
-                console.log(res);
+                // console.log(res);
                 navigate('/');
             }).catch((err) => {
                 setSubmitBtnDisable(false);
@@ -87,7 +94,8 @@ export default function Login() {
                             <VisibilityIcon className="visibilityIcon" onClick={visibleClicked} />
                         }
                         <span className="errorMsg text-danger fw-semibold d-block">{invalidPass}</span>
-                        <button className="btn btn-success w-100 loginPageBtn" onClick={handleSubmission} disabled={submitBtnDisable}>Login</button>
+                        <button className="w-100 googleBtn" onClick={handleGoogleSignin} disabled={submitBtnDisable}>Sign In with Google</button>
+                        <button className="w-100 loginPageBtn" onClick={handleSubmission} disabled={submitBtnDisable}>Login</button>
                         <div className="text-center not_has_account">
                             <span>Need an account? </span>
                             <button className="btn text-success mb-2" onClick={loginClicked} >Signup</button>

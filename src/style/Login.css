@@ -66,11 +66,35 @@
     margin-bottom: 1rem;
 }
 
-.loginPageBtn {
+.googleBtn {
     font-size: 1.7rem;
     padding: 0.7rem;
     margin-top: 4rem;
     margin-bottom: 3rem;
+    color: white;
+    background: #EA4335;
+    border: 2px solid #EA4335;
+    border-radius: 4px;
+}
+
+.googleBtn:hover {
+    color: #EA4335;
+    background: white;
+}
+
+.loginPageBtn {
+    font-size: 1.7rem;
+    padding: 0.7rem;
+    margin-bottom: 3rem;
+    color: white;
+    background: #198754;
+    border: 2px solid #198754;
+    border-radius: 4px;
+}
+
+.loginPageBtn:hover {
+    color: #198754;
+    background: white;
 }
 
 .not_has_account button {
