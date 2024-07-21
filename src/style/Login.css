@@ -1,118 +1,130 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-size: 1.6rem;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 1.6rem;
 }
 
 .loginSec {
-    height: 100vh;
+  height: 100vh;
 }
 
 .loginDiv {
-    /* border: 2px solid red; */
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #CED4CA;
+  /* border: 2px solid red; */
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ced4ca;
 }
 
 .loginFormDiv {
-    /* border: 2px solid black; */
-    background: white;
-    height: 65%;
-    /* width: 28%; */
-    width: 42rem;
-    padding: 3rem;
-    border-radius: 2rem;
-    position: relative;
+  /* border: 2px solid black; */
+  background: white;
+  height: 65%;
+  /* width: 28%; */
+  width: 42rem;
+  padding: 3rem;
+  border-radius: 2rem;
+  position: relative;
 }
 
 .loginFormDiv label {
-    margin: 1rem 0rem;
+  margin: 1rem 0rem;
 }
 
 .loginFormDiv input {
-    width: 100%;
-    margin-bottom: 1rem;
-    padding: 0.5rem 1rem;
-    background: #CED4CA;
-    border: none;
-    /* border-bottom: 2px solid green; */
-    outline: none;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  background: #ced4ca;
+  border: none;
+  /* border-bottom: 2px solid green; */
+  outline: none;
 }
 
 .visibilityIcon {
-    position: absolute;
-    top: 17.6rem;
-    right: 5rem;
-    transform: scale(1.2);
-    cursor: pointer;
-    opacity: 0.5;
+  position: absolute;
+  top: 17.6rem;
+  right: 5rem;
+  transform: scale(1.2);
+  cursor: pointer;
+  opacity: 0.5;
 }
 
 .vIcon {
-    position: absolute;
-    top: 26.6rem;
-    right: 5rem;
-    transform: scale(1.2);
-    cursor: pointer;
-    opacity: 0.5;
+  position: absolute;
+  top: 26.6rem;
+  right: 5rem;
+  transform: scale(1.2);
+  cursor: pointer;
+  opacity: 0.5;
 }
 
 .errorMsg {
-    margin-top: -0.5rem;
-    margin-bottom: 1rem;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
 }
 
 .googleBtn {
-    font-size: 1.7rem;
-    padding: 0.7rem;
-    margin-top: 4rem;
-    margin-bottom: 3rem;
-    color: white;
-    background: #EA4335;
-    border: 2px solid #EA4335;
-    border-radius: 4px;
+  font-size: 1.7rem;
+  padding: 0.7rem;
+  margin-top: 4rem;
+  margin-bottom: 3rem;
+  color: white;
+  background: #ea4335;
+  border: 2px solid #ea4335;
+  border-radius: 4px;
 }
 
 .googleBtn:hover {
-    color: #EA4335;
-    background: white;
+  color: #ea4335;
+  background: white;
+}
+
+.signupBtn {
+  font-size: 1.7rem;
+  padding: 0.7rem;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+  color: white;
+  background: #198754;
+  border: 2px solid #198754;
+  border-radius: 4px;
 }
 
 .loginPageBtn {
-    font-size: 1.7rem;
-    padding: 0.7rem;
-    margin-bottom: 3rem;
-    color: white;
-    background: #198754;
-    border: 2px solid #198754;
-    border-radius: 4px;
+  font-size: 1.7rem;
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  color: white;
+  background: #198754;
+  border: 2px solid #198754;
+  border-radius: 4px;
 }
 
-.loginPageBtn:hover {
-    color: #198754;
-    background: white;
+.loginPageBtn:hover,
+.signupBtn:hover {
+  color: #198754;
+  background: white;
 }
 
 .not_has_account button {
-    background: white;
-    font-size: 1.7rem;
-    font-weight: 500;
-    /* text-decoration: underline; */
+  background: white;
+  font-size: 1.7rem;
+  font-weight: 500;
+  /* text-decoration: underline; */
 }
 
 /* MEDIA QUERY */
 @media only screen and (max-width: 600px) {
-    .loginFormDiv {
-        width: 35rem;
-    }
+  .loginFormDiv {
+    width: 35rem;
+  }
 }
 
 @media only screen and (min-width: 600px) and (max-width: 768px) {
-    .loginFormDiv {
-        width: 38rem;
-    }
+  .loginFormDiv {
+    width: 38rem;
+  }
 }
