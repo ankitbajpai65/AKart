@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import "../style/Contact.css";
+import "./Contact.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { auth } from "./firebase";
+import { auth } from "../firebase";
 
 const Contact = () => {
   const [name, setName] = useState(false);
@@ -13,6 +13,7 @@ const Contact = () => {
     email: "",
     message: "",
   });
+
   // trying to autofill name and email if user is in login state.
   // useEffect(() => {
   //     auth.onAuthStateChanged((user) => {

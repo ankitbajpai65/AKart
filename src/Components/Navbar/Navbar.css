@@ -1,0 +1,157 @@
+.main_nav_div {
+  /* border: 2px solid black; */
+  /* background-color: #B98F77; */
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  overflow-x: hidden;
+}
+
+.active {
+  background-color: white;
+  box-shadow: 0 8px 8px -7px #b4afaf;
+}
+
+.linkDiv ul {
+  list-style: none;
+}
+
+.mobileNav {
+  margin-left: 0;
+  margin-right: 0;
+  height: 35.5%;
+}
+
+.showMobNav {
+  background-color: white;
+  transition: 0.5s;
+}
+
+.navAnim {
+  animation-name: hamburgerSlide;
+  animation-duration: 0.4s;
+}
+
+@keyframes hamburgerSlide {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: 32.5%;
+  }
+}
+
+.hamburger {
+  color: white;
+  transform: scale(2);
+  margin-left: 1rem;
+}
+
+.logo {
+  text-decoration: none;
+  color: white;
+  font-size: 2.2rem;
+}
+
+.logoAfterScroll,
+.changeHamburgerStyle {
+  color: black !important;
+}
+
+.navLinks {
+  text-decoration: none;
+  color: white;
+  font-size: 1.8rem;
+  position: relative;
+  padding: 0 4px;
+}
+
+.navLinks:after {
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  content: "";
+  height: 3px;
+  width: 0;
+  background-color: aliceblue;
+  transition: 0.3s;
+}
+
+.navLinks:hover:after {
+  width: 100%;
+}
+
+.navLinksAfterScroll {
+  text-decoration: none;
+  color: black !important;
+  font-size: 1.8rem;
+  position: relative;
+  padding: 0 4px;
+}
+
+.navLinksAfterScroll:after {
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  content: "";
+  height: 3px;
+  width: 0;
+  background-color: rgb(19, 20, 20);
+  transition: 0.3s;
+}
+
+.navLinksAfterScroll:hover:after {
+  width: 100%;
+}
+
+.cartIcon {
+  font-size: 2.3rem;
+  color: white;
+}
+
+.cartIconAfterScrollOrHamburgerClick {
+  color: black !important;
+}
+
+.items_in_cart_div {
+  position: relative;
+}
+
+.items_in_cart {
+  position: absolute;
+  top: -0.5rem;
+  left: 6.9rem;
+  width: 1.8rem;
+  text-align: center;
+  background: #e61818;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.loginBtn {
+  width: 9rem;
+  font-size: 1.5rem;
+}
+
+/* MEDIA QUERY */
+
+@media only screen and (max-width: 450px) {
+  .items_in_cart {
+    left: 3.9rem;
+  }
+}
+
+@media only screen and (max-width: 632px) {
+  .cartIcon {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (min-width: 632px) and (max-width: 768px) {
+  .items_in_cart {
+    left: 4.5rem;
+  }
+}

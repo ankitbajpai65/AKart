@@ -1,0 +1,151 @@
+.itemDetails {
+  margin-top: 10rem;
+  margin-bottom: 7rem;
+}
+
+.imageSec {
+  /* border: 2px solid rgb(209, 42, 42); */
+  height: 90%;
+}
+
+.imageDiv {
+  height: 80%;
+}
+
+.sideImgDiv {
+  /* border: 2px solid black; */
+  height: 100%;
+}
+
+.sideImgDiv img {
+  /* border: 2px solid black; */
+  height: 31%;
+  width: 85%;
+  margin-bottom: 1.5rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}
+
+.mainImgDiv {
+  /* border: 2px solid black; */
+  height: 100%;
+  display: inline;
+  margin: auto;
+  margin-bottom: 2rem;
+}
+
+.mainImgDiv img {
+  /* border: 2px solid black; */
+  height: 35.3rem;
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /* box-shadow: 3px 3px 8px rgb(204, 203, 203), -3px -3px 8px rgb(204, 203, 203); */
+}
+
+.imageSec button {
+  width: 10em;
+  font-size: 1.5rem;
+  margin: 2rem;
+  padding: 1rem 0rem;
+  letter-spacing: 1px;
+}
+
+.infoDiv {
+  height: 80%;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.infoDiv p {
+  font-size: 3rem;
+}
+
+.discount {
+  color: #23a923;
+}
+
+.rating {
+  width: 3.2em;
+  background: #23a923;
+  padding: 0.2rem 0rem;
+  text-align: center;
+  color: white;
+  border-radius: 2rem;
+}
+
+#aboutInfo {
+  height: 85%;
+}
+
+.labelIcon {
+  transform: scale(1.3);
+  color: #23a923;
+}
+
+.info select {
+  font-size: 1.7rem;
+  margin-top: 1rem;
+  width: 50%;
+  padding: 0.6rem 2rem;
+}
+
+.removeIcon,
+.addIcon {
+  border: 1px solid grey;
+  border-radius: 50%;
+}
+
+.figure {
+  border: 1px solid grey;
+  padding: 0rem 1.2rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+/* MEDIA QUERY */
+
+@media only screen and (max-width: 600px) {
+  .itemDetails {
+    margin-bottom: 3rem;
+  }
+
+  .sideImgDiv {
+    height: 34.5rem;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+  .itemDetails {
+    margin-bottom: 4rem;
+  }
+
+  .sideImgDiv {
+    height: 34.5rem;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .sideImgDiv {
+    height: 34.5rem;
+  }
+
+  .imageSec button {
+    width: 42%;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  html {
+    font-size: 55%;
+  }
+
+  .sideImgDiv {
+    height: 34.5rem;
+  }
+}

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../style/Login.css";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth } from "./firebase";
+import { auth } from "../firebase";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
 import { ToastContainer, toast } from "react-toastify";
+import "./Auth.css";
 import "react-toastify/dist/ReactToastify.css";
 
 const Signup = () => {
