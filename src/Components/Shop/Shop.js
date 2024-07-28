@@ -23,7 +23,6 @@ const Shop = () => {
   useEffect(() => {
     setLoading(true);
     fetch("https://api.escuelajs.co/api/v1/products")
-      // fetch('https://fakestoreapi.com/products')
       .then((response) => {
         // console.log(response);
         return response.json();
@@ -99,6 +98,7 @@ const Shop = () => {
   const inputEvent = (e) => {
     setInput(e.target.value);
   };
+
   const populateSearch = (e) => {
     if (e.key === "Enter") {
       const filteredItems = itemToDisplay.filter((val) => {
@@ -134,126 +134,122 @@ const Shop = () => {
   };
 
   return (
-    <>
-      <div>
-        <div id="shop_main_div">
-          <h1 className="shop_heading display-5 fw-bold">{heading}</h1>
-          <nav className="mb-5">
-            <div className="col-12 shop_navbar_div">
-              <ul className="row">
-                <li className="col-2 col-md-1">
-                  <button
-                    to="/"
-                    className="shop_navbar_links"
-                    onClick={() => populateAllProducts(allItems)}
-                  >
-                    All
-                  </button>
-                </li>
-                <li className="col-2 col-md-1">
-                  <button to="/" className="shop_navbar_links">
-                    Men
-                  </button>
-                </li>
-                <li className="col-2 col-md-1">
-                  <button
-                    to="/"
-                    className="shop_navbar_links"
-                    onClick={() => populateWomen(allItems)}
-                  >
-                    Women
-                  </button>
-                </li>
-                <li className="col-2 col-md-1">
-                  <button
-                    to="/"
-                    className="shop_navbar_links"
-                    onClick={() => populateShoes(allItems)}
-                  >
-                    Shoes
-                  </button>
-                </li>
-                <li className="col-2 col-md-1">
-                  <button
-                    to="/"
-                    className="shop_navbar_links"
-                    onClick={() => populateWatches(allItems)}
-                  >
-                    Watches
-                  </button>
-                </li>
-                <li className="col-2 col-md-1">
-                  <button
-                    to="/item_details"
-                    className="shop_navbar_links"
-                    onClick={() => populateFurniture(allItems)}
-                  >
-                    Furniture
-                  </button>
-                </li>
-                <li className="offset-md-1 col-6 col-sm-5 col-5 col-md-3 mt-5 mt-md-0">
-                  <span className="position-relative">
-                    <input
-                      type="text"
-                      placeholder="Search"
-                      className="searchBar"
-                      onChange={inputEvent}
-                      onKeyUp={populateSearch}
-                    />
-                    <SearchIcon
-                      className="searchIcon"
-                      onClick={populateSearchOnClick}
-                      ref={search}
-                    />
-                  </span>
-                </li>
-                <li className="col-3 col-sm-2 col-2 col-md-1 mt-5 mt-md-0">
-                  <select defaultValue={selected} onChange={sortFunc}>
-                    <option value={selected} disabled hidden>
-                      Sort by:
-                    </option>
-                    <option>Price : Low to High</option>
-                    <option>Price : High to Low</option>
-                  </select>
-                </li>
-              </ul>
-            </div>
-          </nav>
-          <div className="container-fluid">
-            <div className="row item_container">
-              {loading ? (
-                <HashLoader
-                  className="mt-5"
-                  color={"#354BC1"}
-                  loading={loading}
-                  size={40}
-                  aria-label="Loading Spinner"
-                  data-testid="loader"
+    <div id="shop_main_div">
+      <h1 className="shop_heading display-5 fw-bold">{heading}</h1>
+      <nav className="mb-5">
+        <div className="col-12 shop_navbar_div">
+          <ul className="row">
+            <li className="col-2 col-md-1">
+              <button
+                to="/"
+                className="shop_navbar_links"
+                onClick={() => populateAllProducts(allItems)}
+              >
+                All
+              </button>
+            </li>
+            <li className="col-2 col-md-1">
+              <button to="/" className="shop_navbar_links">
+                Men
+              </button>
+            </li>
+            <li className="col-2 col-md-1">
+              <button
+                to="/"
+                className="shop_navbar_links"
+                onClick={() => populateWomen(allItems)}
+              >
+                Women
+              </button>
+            </li>
+            <li className="col-2 col-md-1">
+              <button
+                to="/"
+                className="shop_navbar_links"
+                onClick={() => populateShoes(allItems)}
+              >
+                Shoes
+              </button>
+            </li>
+            <li className="col-2 col-md-1">
+              <button
+                to="/"
+                className="shop_navbar_links"
+                onClick={() => populateWatches(allItems)}
+              >
+                Watches
+              </button>
+            </li>
+            <li className="col-2 col-md-1">
+              <button
+                to="/item_details"
+                className="shop_navbar_links"
+                onClick={() => populateFurniture(allItems)}
+              >
+                Furniture
+              </button>
+            </li>
+            <li className="offset-md-1 col-6 col-sm-5 col-5 col-md-3 mt-5 mt-md-0">
+              <span className="position-relative">
+                <input
+                  type="text"
+                  placeholder="Search"
+                  className="searchBar"
+                  onChange={inputEvent}
+                  onKeyUp={populateSearch}
                 />
-              ) : noFilteredItems == true ? (
-                <h1 className="display-3 text-center mt-5 fw-semibold">
-                  Search Not Found!
-                </h1>
-              ) : (
-                itemToDisplay.map((val, index) => {
-                  return (
-                    <Item
-                      title={val.title}
-                      price={val.price}
-                      image={val.images[0]}
-                      val={val}
-                      starId={val.category.id}
-                      id={val.id}
-                      key={index}
-                    />
-                  );
-                })
-              )}
-            </div>
-          </div>
+                <SearchIcon
+                  className="searchIcon"
+                  onClick={populateSearchOnClick}
+                  ref={search}
+                />
+              </span>
+            </li>
+            <li className="col-3 col-sm-2 col-2 col-md-1 mt-5 mt-md-0">
+              <select defaultValue={selected} onChange={sortFunc}>
+                <option value={selected} disabled hidden>
+                  Sort by:
+                </option>
+                <option>Price : Low to High</option>
+                <option>Price : High to Low</option>
+              </select>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div className="container-fluid">
+        <div className="row item_container">
+          {loading ? (
+            <HashLoader
+              className="mt-5"
+              color={"#354BC1"}
+              loading={loading}
+              size={40}
+              aria-label="Loading Spinner"
+              data-testid="loader"
+            />
+          ) : noFilteredItems == true ? (
+            <h1 className="display-3 text-center mt-5 fw-semibold">
+              Search Not Found!
+            </h1>
+          ) : (
+            itemToDisplay.map((val, index) => {
+              return (
+                <Item
+                  title={val.title}
+                  price={val.price}
+                  image={val.images[0]}
+                  val={val}
+                  starId={val.category.id}
+                  id={val.id}
+                  key={index}
+                />
+              );
+            })
+          )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 export default Shop;

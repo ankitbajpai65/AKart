@@ -5,105 +5,106 @@ import "react-toastify/dist/ReactToastify.css";
 import { auth } from "../firebase";
 
 const Contact = () => {
-  const [name, setName] = useState(false);
-  const [email, setEmail] = useState(false);
-  const [msg, setMsg] = useState(false);
+  const [errors, setErrors] = useState({
+    name: false,
+    email: false,
+    message: false,
+  });
   const [detail, setDetail] = useState({
     fullname: "",
     email: "",
     message: "",
   });
 
-  // trying to autofill name and email if user is in login state.
-  // useEffect(() => {
-  //     auth.onAuthStateChanged((user) => {
-  //         console.log(user);
-  //         if (user) {
-  //             detail.fullname = user.displayName;
-  //             detail.email = user.email;
-  //         }
-  //     })
-  // })
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        setDetail((prevDetail) => ({
+          ...prevDetail,
+          fullname: user.displayName || "",
+          email: user.email || "",
+        }));
+      }
+    });
+  }, []);
 
   const inputEvent = (event) => {
-    // console.log(event.target.name, event.target.value);
-    const value = event.target.value;
-    const name = event.target.name;
-    // setDetail((prev) => {
-    //     return {
-    //         ...prev,
-    //         [name]: value
-    //     }
-    // })
-    setDetail({ ...detail, [name]: value });
+    const { name, value } = event.target;
+    setDetail((prevDetail) => ({ ...prevDetail, [name]: value }));
   };
 
   const validateName = () => {
-    let reg1 = /^[a-zA-Z ]+$/;
-    if (!reg1.test(detail.fullname)) {
-      setName(true);
+    const reg1 = /^[a-zA-Z ]+$/;
+    if (!reg1.test(detail.fullname) || detail.fullname.length <= 2) {
+      setErrors((prevErrors) => ({ ...prevErrors, name: true }));
       return false;
-    } else {
-      if (detail.fullname.length <= 2) {
-        setName(true);
-        return false;
-      }
     }
-    setName(false);
+    setErrors((prevErrors) => ({ ...prevErrors, name: false }));
+    return true;
   };
 
   const validateMail = () => {
-    let reg2 = /^[a-zA-Z0-9._]+@+[a-zA-Z0-9._]+\.[a-zA-Z]{2,4}$/;
+    const reg2 = /^[a-zA-Z0-9._]+@+[a-zA-Z0-9._]+\.[a-zA-Z]{2,4}$/;
     if (!reg2.test(detail.email)) {
-      setEmail(true);
+      setErrors((prevErrors) => ({ ...prevErrors, email: true }));
       return false;
     }
-    setEmail(false);
+    setErrors((prevErrors) => ({ ...prevErrors, email: false }));
+    return true;
   };
 
   const validateMsg = () => {
-    if (detail.message.length == "") {
-      setMsg(true);
+    if (detail.message.length === 0) {
+      setErrors((prevErrors) => ({ ...prevErrors, message: true }));
       return false;
     }
-    setMsg(false);
+    setErrors((prevErrors) => ({ ...prevErrors, message: false }));
+    return true;
   };
 
-  const postData = async (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const { fullname, email, message } = detail;
-    if (fullname && email && message) {
-      const res = await fetch(
-        "https://e-commerce-website-a04e4-default-rtdb.firebaseio.com/contactForm.json",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            fullname,
-            email,
-            message,
-          }),
+
+    const isNameValid = validateName();
+    const isEmailValid = validateMail();
+    const isMessageValid = validateMsg();
+
+    if (isNameValid && isEmailValid && isMessageValid) {
+      try {
+        const res = await fetch(
+          "https://e-commerce-website-a04e4-default-rtdb.firebaseio.com/contactForm.json",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(detail),
+          }
+        );
+
+        const data = await res.json();
+        console.log(data);
+
+        if (res.ok) {
+          toast.success("Your form has been submitted successfully!", {
+            position: "top-center",
+            theme: "dark",
+          });
+          setDetail({ fullname: "", email: "", message: "" });
+        } else {
+          throw new Error("Failed to submit");
         }
-      );
-      toast.success("Your form has been submitted successfully!", {
-        position: "top-center",
-        theme: "dark",
-      });
-      function removeVal() {
-        document.querySelectorAll(".details").forEach((element) => {
-          element.value = "";
+      } catch (error) {
+        toast.error("Submission failed. Please try again.", {
+          position: "top-center",
+          theme: "dark",
         });
       }
-      setTimeout(removeVal, 500);
-      setDetail(null);
     } else {
-      toast.error("Please fill all details!", {
+      toast.error("Please fill all details correctly!", {
         position: "top-center",
         theme: "dark",
       });
-      return false;
     }
   };
 
@@ -117,54 +118,59 @@ const Contact = () => {
           id="formDiv"
           className="d-flex flex-column justify-content-center align-items-center"
         >
-          <form action="" className="form container" method="POST">
-            {name && (
+          <form className="form container" onSubmit={handleSubmit}>
+            {errors.name && (
               <span className="errorMsg row mb-3">
-                *Must hold alphabets only and length should be greater than 2
+                Must hold alphabets only and length should be greater than 2
               </span>
             )}
             <input
               type="text"
               id="name"
-              className={`${
-                name ? "notifyError details input row" : "details input row"
+              className={`details input row ${
+                errors.name ? "notifyError" : ""
               }`}
               onChange={inputEvent}
               onBlur={validateName}
               name="fullname"
+              value={detail.fullname}
               placeholder="Enter name"
             />
 
-            {email && (
+            {errors.email && (
               <span className="errorMsg row mb-3">
-                *Please enter valid email!
+                Please enter valid email!
               </span>
             )}
             <input
-              type=""
+              type="text"
               id="email"
-              className="details input row"
+              className={`details input row ${
+                errors.email ? "notifyError" : ""
+              }`}
               onChange={inputEvent}
               onBlur={validateMail}
               name="email"
+              value={detail.email}
               placeholder="Enter email"
             />
 
-            {msg && (
-              <span className="errorMsg row mb-3">*Message is required!</span>
+            {errors.message && (
+              <span className="errorMsg row mb-3">Message is required!</span>
             )}
             <textarea
-              rows="5"
+              rows="3"
               cols="20"
               id="message"
-              className="details row"
+              className={`details row ${errors.message ? "notifyError" : ""}`}
               onChange={inputEvent}
               onBlur={validateMsg}
               name="message"
+              value={detail.message}
               placeholder="Your message"
             />
 
-            <button className="btn btn-secondary" onClick={postData}>
+            <button className="btn btn-secondary" type="submit">
               Submit
             </button>
           </form>
@@ -174,4 +180,5 @@ const Contact = () => {
     </>
   );
 };
+
 export default Contact;

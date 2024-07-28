@@ -145,14 +145,6 @@ select {
     font-size: 2rem;
 }
 
-.cartIconinItem::after {
-    fill: red;
-}
-
-.cartIconFilled {
-    display: none;
-}
-
 .starIcon {
     float: right;
     color: #FFC107;
