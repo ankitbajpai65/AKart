@@ -16,25 +16,15 @@ export default function ItemDetails() {
   const [img, setImg] = useState(location.state.val.images[0]);
 
   const increment = () => {
-    setQuantity(quantity + 1);
+    if (quantity < 10) setQuantity(quantity + 1);
   };
 
   const decrement = () => {
     if (quantity > 1) setQuantity(quantity - 1);
   };
 
-  const firstImageClicked = (e, val) => {
-    // console.log(e);
-    // console.log(e.target.getAttribute('src'));
-    setImg(val);
-  };
-
-  const secImageClicked = (val) => {
-    setImg(val);
-  };
-
-  const thirdImageClicked = (val) => {
-    setImg(val);
+  const handleSelectImg = (url) => {
+    setImg(url);
   };
 
   return (
@@ -43,14 +33,14 @@ export default function ItemDetails() {
         <div className="container itemDetails">
           <div className="row h-100">
             <div className="col-md-5 col-10 offset-md-0 offset-1 imageSec">
-              <div className="row imageDiv">
-                <div className="col-4 sideImgDiv">
+              <div className="imageDiv">
+                <div className="sideImgDiv">
                   <img
                     src={location.state.val.category.image}
                     alt=""
                     className="sideImg"
                     onClick={(e) =>
-                      firstImageClicked(e, location.state.val.category.image)
+                      handleSelectImg(location.state.val.category.image)
                     }
                   />
                   <img
@@ -58,7 +48,7 @@ export default function ItemDetails() {
                     alt=""
                     className="sideImg"
                     onClick={() =>
-                      secImageClicked(location.state.val.images[1])
+                      handleSelectImg(location.state.val.images[1])
                     }
                   />
                   <img
@@ -66,15 +56,15 @@ export default function ItemDetails() {
                     alt=""
                     className="sideImg"
                     onClick={() =>
-                      thirdImageClicked(location.state.val.images[2])
+                      handleSelectImg(location.state.val.images[2])
                     }
                   />
                 </div>
-                <div className="col-xl-7 col-8 mainImgDiv">
+                <div className="mainImgDiv mb-5">
                   <img src={img} alt="" className="mainImg" />
                 </div>
               </div>
-              <div className="d-flex justify-content-center mt-5">
+              <div className="d-flex justify-content-center gap-4 mt-5 mb-md-0 mb-5">
                 <button
                   className="btn btn-primary"
                   onClick={() => {
@@ -85,11 +75,16 @@ export default function ItemDetails() {
                     });
                   }}
                 >
+                  <i class="bi bi-cart3"></i>
                   ADD TO CART
                 </button>
-                <button className="btn btn-primary">BUY NOW</button>
+                <button className="btn btn-primary">
+                  <i class="bi bi-bag"></i>
+                  BUY NOW
+                </button>
               </div>
             </div>
+
             <div className="col-md-6 col-10 offset-1 infoDiv">
               <div className="">
                 <p className="fw-semibold">{location.state.val.title}</p>

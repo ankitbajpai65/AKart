@@ -3,55 +3,40 @@
   margin-bottom: 7rem;
 }
 
-.imageSec {
-  /* border: 2px solid rgb(209, 42, 42); */
-  height: 90%;
-}
-
 .imageDiv {
-  height: 80%;
+  display: flex;
+  gap: 2rem;
 }
 
 .sideImgDiv {
-  /* border: 2px solid black; */
   height: 100%;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .sideImgDiv img {
-  /* border: 2px solid black; */
-  height: 31%;
-  width: 85%;
-  margin-bottom: 1.5rem;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
   cursor: pointer;
 }
 
 .mainImgDiv {
-  /* border: 2px solid black; */
   height: 100%;
-  display: inline;
-  margin: auto;
-  margin-bottom: 2rem;
+  width: 80%;
 }
 
 .mainImgDiv img {
-  /* border: 2px solid black; */
-  height: 35.3rem;
   width: 100%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  /* box-shadow: 3px 3px 8px rgb(204, 203, 203), -3px -3px 8px rgb(204, 203, 203); */
 }
 
 .imageSec button {
-  width: 10em;
   font-size: 1.5rem;
-  margin: 2rem;
-  padding: 1rem 0rem;
-  letter-spacing: 1px;
+  padding: 1rem 2rem;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
 }
 
 .infoDiv {
@@ -99,6 +84,7 @@
 .addIcon {
   border: 1px solid grey;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .figure {
@@ -110,42 +96,14 @@
 
 /* MEDIA QUERY */
 
-@media only screen and (max-width: 600px) {
-  .itemDetails {
-    margin-bottom: 3rem;
-  }
-
-  .sideImgDiv {
-    height: 34.5rem;
-  }
-}
-
-@media only screen and (min-width: 600px) and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   .itemDetails {
     margin-bottom: 4rem;
-  }
-
-  .sideImgDiv {
-    height: 34.5rem;
-  }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 992px) {
-  .sideImgDiv {
-    height: 34.5rem;
-  }
-
-  .imageSec button {
-    width: 42%;
   }
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   html {
     font-size: 55%;
-  }
-
-  .sideImgDiv {
-    height: 34.5rem;
   }
 }
