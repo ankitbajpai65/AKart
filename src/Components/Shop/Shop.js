@@ -218,34 +218,34 @@ const Shop = () => {
         </div>
       </nav>
       <div className="container-fluid">
-        <div className="row item_container">
+        <div className="loaderDiv d-flex align-items-center justify-content-center">
           {loading ? (
             <HashLoader
-              className="mt-5"
+              className="hashLoader"
               color={"#354BC1"}
               loading={loading}
               size={40}
               aria-label="Loading Spinner"
               data-testid="loader"
             />
-          ) : noFilteredItems == true ? (
-            <h1 className="display-3 text-center mt-5 fw-semibold">
-              Search Not Found!
-            </h1>
+          ) : noFilteredItems === true ? (
+            <h2 className="text-center fw-semibold">No items found!</h2>
           ) : (
-            itemToDisplay.map((val, index) => {
-              return (
-                <Item
-                  title={val.title}
-                  price={val.price}
-                  image={val.images[0]}
-                  val={val}
-                  starId={val.category.id}
-                  id={val.id}
-                  key={index}
-                />
-              );
-            })
+            <div className="row item_container">
+              {itemToDisplay.map((val, index) => {
+                return (
+                  <Item
+                    title={val.title}
+                    price={val.price}
+                    image={val.images[0]}
+                    val={val}
+                    starId={val.category.id}
+                    id={val.id}
+                    key={index}
+                  />
+                );
+              })}
+            </div>
           )}
         </div>
       </div>

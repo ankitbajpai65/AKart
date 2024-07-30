@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./Navbar.css";
 import { Routes, Route, Link, useLocation } from "react-router-dom";
 import { useCart } from "react-use-cart";
@@ -24,26 +24,37 @@ const Navbar = () => {
   const location = useLocation();
   const { totalUniqueItems } = useCart();
 
-  const scrolling = () => {
-    window.scrollY >= 2 ? setScroll(true) : setScroll(false);
-  };
+  const condition = ["/", "/contact", "/login", "/signup"].includes(
+    location.pathname
+  );
+  const navLinkColor = condition ? "white" : "black";
+  const linkClassName =
+    scroll || !condition ? "navLinksAfterScroll" : "navLinks";
 
-  window.addEventListener("scroll", scrolling);
+  const handleScroll = useCallback(() => {
+    setScroll(window.scrollY >= 2);
+  }, []);
 
   useEffect(() => {
-    if (window.innerWidth <= 769) setMobileView(true);
-  }, [mobileView]);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
 
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      // console.log(user);
+    const handleResize = () => setMobileView(window.innerWidth <= 769);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    const logout = auth.onAuthStateChanged((user) => {
       if (user) setDisplayLogoutBtn(true);
       else setDisplayLogoutBtn(false);
     });
+    return () => logout();
   });
 
   const handleLogout = () => {
-    // console.log('logout');
     signOut(auth)
       .then(() => {
         toast.success("Your have been successfully logged out!", {
@@ -57,7 +68,7 @@ const Navbar = () => {
   };
 
   const handleHamburgerClick = () => {
-    setHamburgerClick(!hamburgerClick);
+    setHamburgerClick((prev) => !prev);
   };
 
   const disableHamburger = () => {
@@ -80,15 +91,7 @@ const Navbar = () => {
                   className={`hamburger ${
                     hamburgerClick || scroll ? "changeHamburgerStyle" : ""
                   }`}
-                  style={{
-                    color:
-                      location.pathname === "/" ||
-                      location.pathname == "/contact" ||
-                      location.pathname === "/login" ||
-                      location.pathname === "/signup"
-                        ? "white"
-                        : "black",
-                  }}
+                  style={{ color: navLinkColor }}
                 />
               </Link>
             </div>
@@ -100,15 +103,7 @@ const Navbar = () => {
                       ? "cartIconAfterScrollOrHamburgerClick"
                       : ""
                   }`}
-                  style={{
-                    color:
-                      location.pathname === "/" ||
-                      location.pathname === "/contact" ||
-                      location.pathname === "/login" ||
-                      location.pathname === "/signup"
-                        ? "white"
-                        : "black",
-                  }}
+                  style={{ color: navLinkColor }}
                 />
               </Link>
               {totalUniqueItems > 0 && (
@@ -170,54 +165,32 @@ const Navbar = () => {
         ) : (
           <div className="row d-flex justify-content-between align-items-center">
             <div className="col-2 offset-1 name">
-              <Link
-                to="/"
-                style={{
-                  color:
-                    location.pathname === "/" ||
-                    location.pathname === "/contact" ||
-                    location.pathname === "/login" ||
-                    location.pathname === "/signup"
-                      ? "white"
-                      : "black",
-                }}
-                className={`logo ${scroll ? "logoAfterScroll" : ""}`}
-              >
-                AKart
-              </Link>
+              {scroll || !condition ? (
+                <img
+                  src="/logo-no-background.svg"
+                  alt="logo"
+                  className="logo"
+                />
+              ) : (
+                <img src="/logo.svg" alt="logo" className="logo" />
+              )}
             </div>
             <div className="col-5 offset-1 linkDiv">
               <ul className="row">
                 <li className="col-3 mt-3">
                   <Link
                     to="/"
-                    style={{
-                      color:
-                        location.pathname === "/" ||
-                        location.pathname === "/contact" ||
-                        location.pathname === "/login" ||
-                        location.pathname === "/signup"
-                          ? "white"
-                          : "black",
-                    }}
-                    className={`${scroll ? "navLinksAfterScroll" : "navLinks"}`}
+                    style={{ color: navLinkColor }}
+                    className={linkClassName}
                   >
                     Home
                   </Link>
                 </li>
                 <li className="col-3 mt-3">
                   <Link
-                    style={{
-                      color:
-                        location.pathname === "/" ||
-                        location.pathname === "/contact" ||
-                        location.pathname === "/login" ||
-                        location.pathname === "/signup"
-                          ? "white"
-                          : "black",
-                    }}
+                    style={{ color: navLinkColor }}
                     to="/shop"
-                    className={`${scroll ? "navLinksAfterScroll" : "navLinks"}`}
+                    className={linkClassName}
                   >
                     Shop
                   </Link>
@@ -225,16 +198,8 @@ const Navbar = () => {
                 <li className="col-3 mt-3">
                   <Link
                     to="/contact"
-                    style={{
-                      color:
-                        location.pathname === "/" ||
-                        location.pathname === "/contact" ||
-                        location.pathname === "/login" ||
-                        location.pathname === "/signup"
-                          ? "white"
-                          : "black",
-                    }}
-                    className={`${scroll ? "navLinksAfterScroll" : "navLinks"}`}
+                    style={{ color: navLinkColor }}
+                    className={linkClassName}
                   >
                     Contact
                   </Link>
@@ -244,15 +209,7 @@ const Navbar = () => {
             <div className="col-xl-2 col-3 login d-flex justify-content-evenly items_in_cart_div">
               <Link to="/cart">
                 <i
-                  style={{
-                    color:
-                      location.pathname === "/" ||
-                      location.pathname === "/contact" ||
-                      location.pathname === "/login" ||
-                      location.pathname === "/signup"
-                        ? "white"
-                        : "black",
-                  }}
+                  style={{ color: navLinkColor }}
                   className={`bi bi-cart3 cartIcon ${
                     scroll ? "cartIconAfterScrollOrHamburgerClick" : ""
                   }`}
