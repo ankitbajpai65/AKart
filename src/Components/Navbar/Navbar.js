@@ -41,10 +41,15 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
+  // useEffect(() => {
+  //   const handleResize = () => setMobileView(window.innerWidth <= 769);
+  //   window.addEventListener("resize", handleResize);
+  //   return () => window.removeEventListener("resize", handleResize);
+  // }, []);
+
   useEffect(() => {
-    const handleResize = () => setMobileView(window.innerWidth <= 769);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    if (window.innerWidth <= 769) setMobileView(true);
+    else setMobileView(false);
   }, []);
 
   useEffect(() => {
@@ -180,7 +185,7 @@ const Navbar = () => {
             )}
           </div>
         ) : (
-          <div className="row d-flex justify-content-between align-items-center">
+          <div className="navbar row d-flex justify-content-between align-items-center">
             <div className="col-2 offset-1 name">
               {scroll || !condition ? (
                 <img
