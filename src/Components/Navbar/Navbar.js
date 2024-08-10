@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
-import "./Navbar.css";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { Routes, Route, Link, useLocation } from "react-router-dom";
 import { useCart } from "react-use-cart";
 import Home from "../Home/Home";
@@ -14,8 +13,10 @@ import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import { ToastContainer, toast } from "react-toastify";
 import MenuIcon from "@material-ui/icons/Menu";
+import "./Navbar.css";
 
 const Navbar = () => {
+  const navbarRef = useRef(null);
   const [mobileView, setMobileView] = useState(false);
   const [hamburgerClick, setHamburgerClick] = useState(false);
   const [scroll, setScroll] = useState(false);
@@ -52,7 +53,20 @@ const Navbar = () => {
       else setDisplayLogoutBtn(false);
     });
     return () => logout();
-  });
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (navbarRef.current && !navbarRef.current.contains(event.target)) {
+        setHamburgerClick(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const handleLogout = () => {
     signOut(auth)
@@ -78,6 +92,7 @@ const Navbar = () => {
   return (
     <>
       <div
+        ref={navbarRef}
         className={`container-fluid main_nav_div p-3 ps-3 pe-3 text-white ${
           scroll ? "active" : ""
         } ${hamburgerClick ? "showMobNav navAnim" : ""}`}
@@ -95,22 +110,24 @@ const Navbar = () => {
                 />
               </Link>
             </div>
-            <div className="items_in_cart_div col-5 login d-flex justify-content-evenly">
+            <div className="col-5 login d-flex justify-content-evenly">
               <Link to="/cart">
-                <i
-                  className={`bi bi-cart3 cartIcon ${
-                    scroll || hamburgerClick
-                      ? "cartIconAfterScrollOrHamburgerClick"
-                      : ""
-                  }`}
-                  style={{ color: navLinkColor }}
-                />
-              </Link>
-              {totalUniqueItems > 0 && (
-                <span className="items_in_cart bg-red text-white">
-                  {totalUniqueItems}
+                <span className="position-relative">
+                  <i
+                    className={`bi bi-cart3 cartIcon ${
+                      scroll || hamburgerClick
+                        ? "cartIconAfterScrollOrHamburgerClick"
+                        : ""
+                    }`}
+                    style={{ color: navLinkColor }}
+                  />
+                  {totalUniqueItems > 0 && (
+                    <span className="cartItem bg-red text-white">
+                      {totalUniqueItems}
+                    </span>
+                  )}
                 </span>
-              )}
+              </Link>
               {displayLogoutBtn ? (
                 <Link>
                   <button
@@ -130,8 +147,8 @@ const Navbar = () => {
             </div>
             {hamburgerClick && (
               <div className="linkDiv mobileNav">
-                <ul className="row h-100">
-                  <li className="col-2 offset-5 mt-5">
+                <ul className="h-100 flex flex-col">
+                  <li className="mt-5 text-center">
                     <Link
                       to="/"
                       className="navLinks text-dark"
@@ -140,7 +157,7 @@ const Navbar = () => {
                       Home
                     </Link>
                   </li>
-                  <li className="col-2 offset-5 mt-5">
+                  <li className="mt-4 text-center">
                     <Link
                       to="/shop"
                       className="navLinks text-dark"
@@ -149,7 +166,7 @@ const Navbar = () => {
                       Shop
                     </Link>
                   </li>
-                  <li className="col-2 offset-5 mt-5">
+                  <li className="mt-4 text-center">
                     <Link
                       to="/contact"
                       className="navLinks text-dark"
@@ -206,19 +223,21 @@ const Navbar = () => {
                 </li>
               </ul>
             </div>
-            <div className="col-xl-2 col-3 login d-flex justify-content-evenly items_in_cart_div">
+            <div className="col-xl-2 col-3 login d-flex justify-content-evenly">
               <Link to="/cart">
-                <i
-                  style={{ color: navLinkColor }}
-                  className={`bi bi-cart3 cartIcon ${
-                    scroll ? "cartIconAfterScrollOrHamburgerClick" : ""
-                  }`}
-                />
-                {totalUniqueItems > 0 && (
-                  <span className="items_in_cart bg-red text-white">
-                    {totalUniqueItems}
-                  </span>
-                )}
+                <span className="position-relative">
+                  <i
+                    style={{ color: navLinkColor }}
+                    className={`bi bi-cart3 cartIcon ${
+                      scroll ? "cartIconAfterScrollOrHamburgerClick" : ""
+                    }`}
+                  />
+                  {totalUniqueItems > 0 && (
+                    <span className="cartItem bg-red text-white">
+                      {totalUniqueItems}
+                    </span>
+                  )}
+                </span>
               </Link>
 
               {displayLogoutBtn ? (

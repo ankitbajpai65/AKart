@@ -19,6 +19,7 @@ const Signup = () => {
   });
   const [submitBtnDisable, setSubmitBtnDisable] = useState(false);
   const [visible, setVisible] = useState(false);
+
   const loginClicked = () => {
     navigate("/login");
   };
@@ -32,15 +33,12 @@ const Signup = () => {
   };
 
   const inputEvent = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    // console.log(name, value);
+    const { name, value } = e.target;
     setUser({ ...user, [name]: value });
   };
 
   const handleSubmission = () => {
     if (!user.fullname || !user.email || !user.pass) {
-      // alert("Please fill all entries!");
       toast.error("Please fill all details!", {
         position: "top-center",
         theme: "dark",
@@ -61,8 +59,7 @@ const Signup = () => {
       })
       .catch((err) => {
         setSubmitBtnDisable(false);
-        // console.log("error is", err)
-        // alert(err.message);
+
         if (err.message === "Firebase: Error (auth/invalid-email).")
           setInvalidMail("The email id is invalid!");
         if (err.message === "Firebase: Error (auth/email-already-in-use).")
@@ -77,6 +74,7 @@ const Signup = () => {
           setInvalidPass();
         }, 2000);
       });
+
     function removeVal() {
       document.querySelectorAll("input").forEach((element) => {
         element.value = "";

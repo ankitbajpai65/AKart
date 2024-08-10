@@ -6,12 +6,10 @@
 }
 
 .cartDiv {
-  /* border: 2px solid red; */
   height: 100%;
 }
 
 .catalogue {
-  /* border: 2px solid red; */
   height: 100%;
   margin-right: 2rem;
   box-shadow: 3px 3px 8px rgb(231 228 228), -3px -3px 8px rgb(231 228 228);
@@ -24,7 +22,6 @@
 }
 
 .emptyCart {
-  /* height: 59rem; */
   padding: 4rem;
   height: 59rem;
   padding: 4rem;
@@ -77,7 +74,13 @@
 
 .deleteIcon {
   float: right;
-  transform: scale(1.6);
+  transform: scale(2);
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 3px;
+}
+.deleteIcon:hover {
+  background: rgb(223, 223, 223);
 }
 
 .figure {
@@ -88,7 +91,6 @@
 }
 
 .totalPrice {
-  /* border: 2px solid red; */
   height: 48%;
   box-shadow: 3px 3px 8px rgb(231 228 228), -3px -3px 8px rgb(231 228 228);
 }
@@ -98,13 +100,11 @@
 }
 
 .priceSec {
-  /* border: 2px solid red; */
   padding: 1.2rem 0.5rem;
 }
 
 .warningDiv {
   height: 70vh;
-  /* border: 2px solid red; */
   display: flex;
   align-items: center;
   justify-content: center;

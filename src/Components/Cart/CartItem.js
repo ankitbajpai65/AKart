@@ -1,19 +1,19 @@
-import React, { useState } from "react";
-import "./Cart.css";
-import { useNavigate, Link } from "react-router-dom";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useCart } from "react-use-cart";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 import ClearIcon from "@material-ui/icons/Clear";
+import "./Cart.css";
 
 const CartItem = (props) => {
-  // console.log(props);
   let navigate = useNavigate();
   const { updateItemQuantity, removeItem } = useCart();
+
   const gotoItemDetails = (val) => {
     navigate("/item_details", { state: { val } });
   };
-  // console.log(props);
+
   return (
     <>
       <div className="col-3 cart_page_img cartInfo d-flex align-items-center">

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import "./Contact.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { auth } from "../firebase";
+import "./Contact.css";
 
 const Contact = () => {
   const [errors, setErrors] = useState({

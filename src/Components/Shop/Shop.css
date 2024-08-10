@@ -1,22 +1,23 @@
 #shop_main_div {
-  /* border: 2px solid red; */
   margin: 12rem 0rem 3rem 0rem;
   min-height: 35vh;
+  padding: 0 4rem;
 }
 
 #shop_main_div nav {
-  margin-left: 2.5rem;
   width: 97%;
 }
 
 .shop_heading {
   margin-bottom: 3rem;
-  margin-left: 5.5rem;
 }
 
-.shop_navbar_div ul {
+.shopNavbar ul {
   list-style: none;
   margin-right: 0;
+  display: flex;
+  gap: 6rem;
+  padding-left: 0;
 }
 
 .shop_navbar_links {
@@ -42,6 +43,11 @@
   width: 100%;
 }
 
+.filterDiv {
+  display: flex;
+  gap: 2rem;
+}
+
 .searchBar {
   width: 100%;
   padding: 0.4rem 2rem;
@@ -52,7 +58,6 @@
 
 select {
   padding: 0.4rem 1rem;
-  margin-left: 4rem;
   width: 100%;
 }
 
@@ -81,10 +86,8 @@ select {
 }
 
 .item {
-  /* border: 2px solid red; */
-  height: 36rem;
   width: 28rem;
-  margin: 3rem 4rem;
+  margin: 3rem;
   padding: 0;
   position: relative;
   /* box-shadow: 1px 1px 8px rgb(204 203 203), 0px 0px 8px rgb(204 203 203); */
@@ -98,6 +101,12 @@ select {
   height: 27rem;
   width: inherit;
   transition: 0.9 ease;
+}
+
+.fallbackImg {
+  height: 100;
+  width: 100%;
+  background-color: rgb(206, 206, 206);
 }
 
 .middle {
@@ -133,7 +142,6 @@ select {
 }
 
 .item_info {
-  /* background-color: rgb(210, 207, 214); */
   height: 8rem;
   display: flex;
   flex-direction: column;
@@ -166,26 +174,23 @@ select {
 
 /* MEDIA QUERY */
 
-@media only screen and (max-width: 600px) {
-  .shop_navbar_div {
-    width: 90vw;
+@media only screen and (max-width: 900px) {
+  .shopNav {
+    overflow-x: auto;
+    padding: 1rem 0;
   }
 
+  .shopNav::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
   #shop_main_div {
-    width: 97vw;
+    padding: 0 2rem;
   }
 
   #shop_main_div nav {
     margin-left: 0.5rem;
-  }
-
-  .shop_heading {
-    margin-left: 2.5rem;
-  }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 992px) {
-  select {
-    margin-left: 0;
   }
 }

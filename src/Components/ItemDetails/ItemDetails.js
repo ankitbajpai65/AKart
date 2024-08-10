@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useCart } from "react-use-cart";
-import "./ItemDetails.css";
 import LabelImportantIcon from "@material-ui/icons/LabelImportant";
 import StarIcon from "@material-ui/icons/Star";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 import { ToastContainer, toast } from "react-toastify";
+import "./ItemDetails.css";
 
 export default function ItemDetails() {
   const location = useLocation();

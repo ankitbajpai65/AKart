@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "./Home.css";
 import { Link } from "react-router-dom";
 import Shop from "../Shop/Shop";
+import "./Home.css";
 
 const dataSlider = [
   {
@@ -25,32 +25,22 @@ const dataSlider = [
     subtitle: "Enjoy your summer with us",
   },
 ];
+
 const Home = () => {
   const [slideIndex, setSlideIndex] = useState(1);
-  const [auto, setauto] = useState(true);
 
   const nextSlide = () => {
-    if (slideIndex !== dataSlider.length) setSlideIndex(slideIndex + 1);
-    else if (slideIndex === dataSlider.length) setSlideIndex(1);
+    setSlideIndex(slideIndex !== dataSlider.length ? slideIndex + 1 : 1);
   };
 
   const prevSlide = () => {
-    if (slideIndex !== 1) setSlideIndex(slideIndex - 1);
-    else if (slideIndex === 1) setSlideIndex(dataSlider.length);
+    setSlideIndex(slideIndex !== 1 ? slideIndex - 1 : dataSlider.length);
   };
 
-  let slideinterval;
-
   useEffect(() => {
-    setauto(true);
-    if (auto) {
-      slideinterval = setInterval(nextSlide, 3000);
-    }
-    return () => {
-      setauto(false);
-      clearInterval(slideinterval);
-    };
-  });
+    const slideInterval = setInterval(nextSlide, 3000);
+    return () => clearInterval(slideInterval);
+  }, [slideIndex]);
 
   return (
     <>
@@ -80,6 +70,7 @@ const Home = () => {
           <i className="bi bi-chevron-right"></i>
         </button>
       </div>
+
       <div className="container-fluid sections">
         <div className="sections_subDiv">
           <div className="card_home men">
@@ -102,6 +93,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+
       <Shop />
     </>
   );

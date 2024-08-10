@@ -1,220 +1,142 @@
 import React, { useState, useEffect, useRef } from "react";
 import HashLoader from "react-spinners/HashLoader";
-import "./Shop.css";
 import SearchIcon from "@material-ui/icons/Search";
 import Item from "./Item";
+import "./Shop.css";
 
 const Shop = () => {
   const search = useRef();
   const [loading, setLoading] = useState(false);
-  const [itemToDisplay, setItemToDisplay] = useState([]);
+  const [error, setError] = useState("");
+
   const [allItems, setAllItems] = useState([]);
+  const [filteredItems, setFilteredItems] = useState([]);
+  const [categories, setCategories] = useState([]);
+
   const [heading, setHeading] = useState("All Products");
-  const [input, setInput] = useState();
+  const [input, setInput] = useState("");
   const [selected, setSelected] = useState("Sort by:");
-  const [sort, setSort] = useState([]);
-  const [noFilteredItems, setNoFilteredItems] = useState(false);
-  let data;
 
   useEffect(() => {
-    setItemToDisplay(sort);
-  }, [sort]);
-
-  useEffect(() => {
-    setLoading(true);
-    fetch("https://api.escuelajs.co/api/v1/products")
-      .then((response) => {
-        // console.log(response);
-        return response.json();
-      })
-      .then((res) => {
-        data = res;
-        // console.log(data);
-        setItemToDisplay(data);
-        setAllItems(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.log(error);
-        setLoading(false);
-      });
+    fetchAllItems();
   }, []);
 
-  const populateAllProducts = (val) => {
-    // console.log('all click', val);
-    setItemToDisplay(val);
+  async function fetchAllItems() {
+    setLoading(true);
+    try {
+      const response = await fetch("https://api.escuelajs.co/api/v1/products");
+      const res = await response.json();
+
+      console.log(res);
+      setFilteredItems(res);
+      setAllItems(res);
+
+      const categories = new Set();
+      for (let i of res) {
+        categories.add(i.category.name);
+      }
+      setCategories([...categories]);
+    } catch (err) {
+      console.log("Error fetching items:", err);
+      setError("Failed to fetch items. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  const populateAllProducts = () => {
+    setFilteredItems(allItems);
     setHeading("All Products");
-    document.querySelector("input").value = "";
+    setInput("");
     setSelected("Sort by:");
   };
 
-  const populateWomen = (val) => {
-    const filterWomen = val.filter((i) => {
-      return i.category.name === "Clothes";
-    });
-    // console.log(filterWomen);
-    setItemToDisplay(filterWomen);
-    setHeading("Women Products");
-    document.querySelector("input").value = "";
-    setSelected("Sort by:");
-  };
-
-  const populateShoes = (val) => {
-    // console.log('shoes click', val);
-    const filterShoes = val.filter((i) => {
-      return i.category.name === "Shoes";
-    });
-    // console.log(filterShoes);
-    setItemToDisplay(filterShoes);
-    setHeading("Shoe Products");
-    document.querySelector("input").value = "";
-    setSelected("Sort by:");
-  };
-
-  const populateWatches = (val) => {
-    const filterWatches = val.filter((i) => {
-      return i.category.name === "Electronics";
-    });
-    // console.log(filterWatches);
-    setItemToDisplay(filterWatches);
-    setHeading("Watches");
-    document.querySelector("input").value = "";
-    setSelected("Sort by:");
-  };
-
-  const populateFurniture = (val) => {
-    const filterFurniture = val.filter((i) => {
-      return i.category.name === "Furniture";
-    });
-    // console.log(filterFurniture);
-    setItemToDisplay(filterFurniture);
-    setHeading("Furniture and Interior Products");
-    setSelected("Sort by:");
-    document.querySelector("input").value = "";
-    let select = document.querySelector("select");
-    // console.log(selected);
-  };
-
-  const inputEvent = (e) => {
-    setInput(e.target.value);
-  };
-
-  const populateSearch = (e) => {
-    if (e.key === "Enter") {
-      const filteredItems = itemToDisplay.filter((val) => {
-        return val.title.toLowerCase().includes(input.toLowerCase());
-      });
-      // console.log(filteredItems);
-      setItemToDisplay(filteredItems);
-      if (filteredItems.length == 0) setNoFilteredItems(true);
-    }
-  };
-
-  const populateSearchOnClick = (e) => {
-    const filteredItems = itemToDisplay.filter((val) =>
-      val.title.toLowerCase().includes(input.toLowerCase())
+  function handleFilter(category) {
+    const filteredItems = allItems.filter(
+      (item) => item.category.name === category
     );
-    setItemToDisplay(filteredItems);
-    if (filteredItems.length == 0) setNoFilteredItems(true);
+    console.log(filteredItems);
+
+    setFilteredItems(filteredItems);
+    setHeading(category);
+    setInput("");
+    setSelected("Sort by:");
+  }
+
+  const handleSearch = (e) => {
+    if (e.type === "click" || (e.type === "keyup" && e.key === "Enter")) {
+      console.log("line 73");
+      const searchedItems = filteredItems.filter((val) =>
+        val.title.toLowerCase().includes(input.toLowerCase())
+      );
+      setFilteredItems(searchedItems);
+    }
   };
 
-  const sortFunc = (e) => {
-    let elem = e.target.value;
-    // console.log(elem)
-    let sorted = itemToDisplay.sort((a, b) => {
-      return a.price - b.price;
-    });
-    if (elem === "Price : Low to High") {
-      setSort(sorted);
-      setSelected("Price : Low to High");
-    } else if (elem === "Price : High to Low") {
-      setSort(sorted.reverse());
-      setSelected("Price : High to Low");
+  const handleSort = (e) => {
+    const elem = e.target.value;
+    let sorted = [...filteredItems].sort((a, b) => a.price - b.price);
+    if (elem === "Price : High to Low") {
+      sorted.reverse();
     }
+    setFilteredItems(sorted);
+    setSelected(elem);
   };
 
   return (
     <div id="shop_main_div">
       <h1 className="shop_heading display-5 fw-bold">{heading}</h1>
       <nav className="mb-5">
-        <div className="col-12 shop_navbar_div">
-          <ul className="row">
-            <li className="col-2 col-md-1">
+        <div className="shopNavbar d-flex align-items-center gap-5 justify-content-between flex-wrap ">
+          <ul className="shopNav mb-0">
+            <li className="">
               <button
                 to="/"
-                className="shop_navbar_links"
+                className={`shop_navbar_links`}
                 onClick={() => populateAllProducts(allItems)}
               >
                 All
               </button>
             </li>
-            <li className="col-2 col-md-1">
-              <button to="/" className="shop_navbar_links">
-                Men
-              </button>
-            </li>
-            <li className="col-2 col-md-1">
-              <button
-                to="/"
-                className="shop_navbar_links"
-                onClick={() => populateWomen(allItems)}
-              >
-                Women
-              </button>
-            </li>
-            <li className="col-2 col-md-1">
-              <button
-                to="/"
-                className="shop_navbar_links"
-                onClick={() => populateShoes(allItems)}
-              >
-                Shoes
-              </button>
-            </li>
-            <li className="col-2 col-md-1">
-              <button
-                to="/"
-                className="shop_navbar_links"
-                onClick={() => populateWatches(allItems)}
-              >
-                Watches
-              </button>
-            </li>
-            <li className="col-2 col-md-1">
-              <button
-                to="/item_details"
-                className="shop_navbar_links"
-                onClick={() => populateFurniture(allItems)}
-              >
-                Furniture
-              </button>
-            </li>
-            <li className="offset-md-1 col-6 col-sm-5 col-5 col-md-3 mt-5 mt-md-0">
+            {categories.map((category, index) => (
+              <li key={index}>
+                <button
+                  onClick={() => handleFilter(category)}
+                  className="shop_navbar_links"
+                >
+                  {category}
+                </button>
+              </li>
+            ))}
+          </ul>
+
+          <div className="filterDiv">
+            <div className="">
               <span className="position-relative">
                 <input
                   type="text"
                   placeholder="Search"
                   className="searchBar"
-                  onChange={inputEvent}
-                  onKeyUp={populateSearch}
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  onKeyUp={handleSearch}
                 />
                 <SearchIcon
                   className="searchIcon"
-                  onClick={populateSearchOnClick}
+                  onClick={handleSearch}
                   ref={search}
                 />
               </span>
-            </li>
-            <li className="col-3 col-sm-2 col-2 col-md-1 mt-5 mt-md-0">
-              <select defaultValue={selected} onChange={sortFunc}>
-                <option value={selected} disabled hidden>
-                  Sort by:
-                </option>
-                <option>Price : Low to High</option>
-                <option>Price : High to Low</option>
-              </select>
-            </li>
-          </ul>
+            </div>
+
+            <select value={selected} onChange={handleSort}>
+              <option disabled hidden>
+                Sort by:
+              </option>
+              <option>Price : Low to High</option>
+              <option>Price : High to Low</option>
+            </select>
+          </div>
         </div>
       </nav>
       <div className="container-fluid">
@@ -228,11 +150,13 @@ const Shop = () => {
               aria-label="Loading Spinner"
               data-testid="loader"
             />
-          ) : noFilteredItems === true ? (
+          ) : error ? (
+            <h2 className="text-center fw-semibold">{error}</h2>
+          ) : filteredItems.length === 0 ? (
             <h2 className="text-center fw-semibold">No items found!</h2>
           ) : (
             <div className="row item_container">
-              {itemToDisplay.map((val, index) => {
+              {filteredItems.map((val, index) => {
                 return (
                   <Item
                     title={val.title}

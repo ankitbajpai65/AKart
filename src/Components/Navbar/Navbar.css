@@ -117,14 +117,10 @@
   color: black !important;
 }
 
-.items_in_cart_div {
-  position: relative;
-}
-
-.items_in_cart {
+.cartItem {
   position: absolute;
-  top: -0.5rem;
-  left: 6.9rem;
+  top: -12px;
+  right: -18px;
   width: 1.8rem;
   text-align: center;
   background: #e61818;
@@ -138,22 +134,8 @@
   font-size: 1.5rem;
 }
 
-/* MEDIA QUERY */
-
-@media only screen and (max-width: 450px) {
-  .items_in_cart {
-    left: 3.9rem;
-  }
-}
-
 @media only screen and (max-width: 632px) {
   .cartIcon {
     font-size: 2rem;
-  }
-}
-
-@media only screen and (min-width: 632px) and (max-width: 768px) {
-  .items_in_cart {
-    left: 4.5rem;
   }
 }

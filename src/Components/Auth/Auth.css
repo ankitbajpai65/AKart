@@ -3,7 +3,6 @@
 }
 
 .loginDiv {
-  /* border: 2px solid red; */
   height: 100vh;
   display: flex;
   align-items: center;
@@ -12,12 +11,11 @@
 }
 
 .loginFormDiv {
-  /* border: 2px solid black; */
   background: white;
-  height: 65%;
-  /* width: 28%; */
   width: 42rem;
+  min-width: 40rem;
   padding: 3rem;
+  margin: 0 1.5rem;
   border-radius: 2rem;
   position: relative;
 }
@@ -32,7 +30,6 @@
   padding: 0.5rem 1rem;
   background: #ced4ca;
   border: none;
-  /* border-bottom: 2px solid green; */
   outline: none;
 }
 
@@ -61,18 +58,20 @@
 
 .googleBtn {
   font-size: 1.7rem;
+  font-weight: 500;
   padding: 0.7rem;
   margin-top: 4rem;
   margin-bottom: 3rem;
-  color: white;
-  background: #ea4335;
-  border: 2px solid #ea4335;
+  color: #ea4335;
+  border: none;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  background: white;
   border-radius: 4px;
 }
-
 .googleBtn:hover {
-  color: #ea4335;
-  background: white;
+  background: #ea4335;
+  color: white;
 }
 
 .signupBtn {
@@ -81,8 +80,8 @@
   margin-top: 4rem;
   margin-bottom: 1rem;
   color: white;
-  background: #198754;
-  border: 2px solid #198754;
+  background: #11a35f;
+  border: 2px solid #11a35f;
   border-radius: 4px;
 }
 
@@ -91,33 +90,18 @@
   padding: 0.7rem;
   margin-bottom: 1rem;
   color: white;
-  background: #198754;
-  border: 2px solid #198754;
+  background: #11a35f;
+  border: 2px solid #11a35f;
   border-radius: 4px;
 }
 
 .loginPageBtn:hover,
 .signupBtn:hover {
   color: #198754;
-  background: white;
 }
 
 .not_has_account button {
   background: white;
   font-size: 1.7rem;
   font-weight: 500;
-  /* text-decoration: underline; */
-}
-
-/* MEDIA QUERY */
-@media only screen and (max-width: 600px) {
-  .loginFormDiv {
-    width: 35rem;
-  }
-}
-
-@media only screen and (min-width: 600px) and (max-width: 768px) {
-  .loginFormDiv {
-    width: 38rem;
-  }
 }
