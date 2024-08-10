@@ -13,7 +13,7 @@ export default function ItemDetails() {
   const { addItem } = useCart();
 
   const [quantity, setQuantity] = useState(1);
-  const [img, setImg] = useState(location.state.val.images[0]);
+  const [img, setImg] = useState(location?.state?.val.images[0]);
 
   const increment = () => {
     if (quantity < 10) setQuantity(quantity + 1);
@@ -36,27 +36,27 @@ export default function ItemDetails() {
               <div className="imageDiv">
                 <div className="sideImgDiv">
                   <img
-                    src={location.state.val.category.image}
+                    src={location.state?.val.category.image}
                     alt=""
                     className="sideImg"
                     onClick={(e) =>
-                      handleSelectImg(location.state.val.category.image)
+                      handleSelectImg(location.state?.val.category.image)
                     }
                   />
                   <img
-                    src={location.state.val.images[1]}
+                    src={location.state?.val.images[1]}
                     alt=""
                     className="sideImg"
                     onClick={() =>
-                      handleSelectImg(location.state.val.images[1])
+                      handleSelectImg(location.state?.val.images[1])
                     }
                   />
                   <img
-                    src={location.state.val.images[2]}
+                    src={location.state?.val.images[2]}
                     alt=""
                     className="sideImg"
                     onClick={() =>
-                      handleSelectImg(location.state.val.images[2])
+                      handleSelectImg(location.state?.val.images[2])
                     }
                   />
                 </div>
@@ -68,7 +68,7 @@ export default function ItemDetails() {
                 <button
                   className="btn btn-primary"
                   onClick={() => {
-                    addItem(location.state.val);
+                    addItem(location.state?.val);
                     toast.success("Your item has been added to the cart!", {
                       position: "top-right",
                       theme: "dark",
@@ -87,18 +87,18 @@ export default function ItemDetails() {
 
             <div className="col-md-6 col-10 offset-1 infoDiv">
               <div className="">
-                <p className="fw-semibold">{location.state.val.title}</p>
+                <p className="fw-semibold">{location.state?.val.title}</p>
                 <span>
-                  <h1 className="d-inline">₹ {location.state.val.price}/- </h1>
+                  <h1 className="d-inline">₹ {location.state?.val.price}/- </h1>
                   <strike className="d-inline-block">
-                    ₹{Math.round(location.state.val.price * (1 + 20 / 100))}
+                    ₹{Math.round(location.state?.val.price * (1 + 20 / 100))}
                   </strike>
                   <span className="discount d-inline-block fw-semibold ms-4">
                     20% off
                   </span>
                 </span>
                 <span className="d-block mt-4 mb-3 rating">
-                  {location.state.val.category.id}
+                  {location.state?.val.category.id}
                   <StarIcon className="ms-1 mn-1 fs-4" />
                 </span>
               </div>
@@ -125,7 +125,7 @@ export default function ItemDetails() {
                     <LabelImportantIcon className="labelIcon me-3" />
                     <span className="fs-3 fw-semibold">Description : </span>
                     <span className="fs-3">
-                      {location.state.val.description}
+                      {location.state?.val.description}
                     </span>
                   </span>
                   <span className="info d-block">
